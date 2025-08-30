@@ -3,8 +3,9 @@ using UnityEngine.UI;
 public class Reverse : MonoBehaviour
 {
     public Image topImage;      // ã”¼•ª‚ÌImage
-    public Image bottomImage;   // ‰º”¼•ª‚ÌImage
+
     private bool isDefault = true; // Œ»İ‚Ìó‘Ô‚ğ‹L˜^itrue=ã”’‰º•j
+
     void Start()
     {
         // ‰Šúó‘Ô‚ğİ’è
@@ -28,11 +29,11 @@ public class Reverse : MonoBehaviour
     private void SetDefaultColors()
     {
         topImage.color = Color.white;
-        bottomImage.color = Color.black;
+       
     }
     private void SetAlternateColors()
     {
         topImage.color = Color.black;
-        bottomImage.color = Color.white;
+        
     }
 }
