@@ -3,7 +3,7 @@ using UnityEngine;
 public class AutoScroll : MonoBehaviour
 {
     public float baseSpeed = 2f;             // ‰Šú‘¬“x
-    public float accelerationAmount = 10f;    // 1‰ñ‰Ÿ‚·‚²‚Æ‚Ì‰Á‘¬—Ê
+    public float accelerationAmount = 5f;    // 1‰ñ‰Ÿ‚·‚²‚Æ‚Ì‰Á‘¬—Ê
     public float maxSpeed = 100f;             // Å‘å‘¬“x
 
     private float currentSpeed;
