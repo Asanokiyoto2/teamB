@@ -382,10 +382,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1830893289}
   - component: {fileID: 1830893288}
-  - component: {fileID: 1830893290}
   - component: {fileID: 1830893292}
   - component: {fileID: 1830893291}
   - component: {fileID: 1830893293}
+  - component: {fileID: 1830893294}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -463,19 +463,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1830893290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830893286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb4db2a48526da24daeab6039c141f1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 20
 --- !u!58 &1830893291
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -527,7 +514,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -551,6 +538,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b790d599b676a4bb3e3ec8edc78a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1830893294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830893286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb4db2a48526da24daeab6039c141f1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
