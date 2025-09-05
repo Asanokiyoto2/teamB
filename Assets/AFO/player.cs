@@ -23,10 +23,10 @@ public class player : MonoBehaviour
         rb.linearVelocity = new Vector2(inputDirection.x * moveSpeed, inputDirection.y * moveSpeed);
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
-        rb.linearVelocity = Vector3.zero;
+        rb.linearVelocity = Vector2.zero;
 
-        Vector3 move = new Vector3(h, 0, v).normalized;
+        Vector2 move = new Vector2(h,  v).normalized;
 
-        transform.position += move * moveSpeed * Time.deltaTime;
+        rb.linearVelocity = move * moveSpeed;
     }
 }
