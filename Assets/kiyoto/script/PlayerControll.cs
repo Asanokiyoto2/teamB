@@ -44,6 +44,7 @@ public class playerControll : MonoBehaviour
                 life++;
                 Debug.Log(life);
             }
+            Destroy(collision.gameObject);
         }
     }
 
