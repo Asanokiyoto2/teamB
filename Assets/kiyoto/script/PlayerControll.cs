@@ -1,7 +1,9 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class PlayerControll : MonoBehaviour
 {
+    public float moveSpeed = 5.0f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
