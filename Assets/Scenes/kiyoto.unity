@@ -152,8 +152,7 @@ MonoBehaviour:
   playerRenderer: {fileID: 1830893288}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   whiteColor: {r: 1, g: 1, b: 1, a: 1}
-  stepAmount: 0
-  amountMinus: 0.04
+  colorLerpSpeed: 0.5
 --- !u!4 &162358833
 Transform:
   m_ObjectHideFlags: 0
