@@ -1,30 +1,77 @@
-using UnityEngine;
+/*using UnityEngine;
 public class ColorSwitcher : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer;
-    private bool isWhite = true;  // 現在の色が白かどうか
+    public SpriteRenderer backgroundRenderer;
+    public SpriteRenderer playerRenderer;
+    public Color blackColor = Color.black;
+    public Color whiteColor = Color.white;
+    [Range(0f, 1f)]
+    public float stepAmount = 0f;
+    public float amountMinus = 0.1f;
+    private bool isWhiteBackground = true;
     void Start()
     {
-        // このオブジェクトの SpriteRenderer を取得
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        // 初期色を白に設定
-        spriteRenderer.color = Color.white;
+        backgroundRenderer.color = whiteColor;
+        playerRenderer.color = blackColor;
     }
     void Update()
     {
-        // スペースキーが押されたら切り替え
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (isWhite)
-            {
-                spriteRenderer.color = Color.black;
-            }
-            else
-            {
-                spriteRenderer.color = Color.white;
-            }
-            // 状態を反転
-            isWhite = !isWhite;
+            // 背景切替
+            isWhiteBackground = !isWhiteBackground;
+            Color targetBgColor = isWhiteBackground ? whiteColor : blackColor;
+            backgroundRenderer.color = targetBgColor;
+
+            stepAmount = stepAmount + amountMinus;
+            // プレイヤーを背景と逆の色に設定
+            playerRenderer.color = isWhiteBackground ? blackColor : whiteColor;
+            // 背景に合わせて徐々に同化
+            playerRenderer.color = isWhiteBackground ?
+                MoveColorTowards(playerRenderer.color, whiteColor, stepAmount) :
+                MoveColorTowards(playerRenderer.color, blackColor, stepAmount);
         }
     }
+    private Color MoveColorTowards(Color a, Color b, float step)
+    {
+        float r = Mathf.MoveTowards(a.r, b.r, step);
+        float g = Mathf.MoveTowards(a.g, b.g, step);
+        float bl = Mathf.MoveTowards(a.b, b.b, step);
+        float alpha = Mathf.MoveTowards(a.a, b.a, step);
+        return new Color(r, g, bl, alpha);
+    }
+}*/
+using UnityEngine;
+public class ColorSwitcher : MonoBehaviour
+{
+    [Header("背景とプレイヤー")]
+    public SpriteRenderer backgroundRenderer;  // 背景のSpriteRenderer
+    public SpriteRenderer playerRenderer;      // プレイヤーのSpriteRenderer
+    [Header("色設定")]
+    public Color blackColor = Color.black;
+    public Color whiteColor = Color.white;
+    [Header("色の変化速度")]
+    public float colorLerpSpeed = 1f; // 1秒で背景に近づく速さ
+    private bool isWhiteBackground = true;
+    void Start()
+    {
+        // 初期設定
+        backgroundRenderer.color = whiteColor;
+        playerRenderer.color = blackColor;
+    }
+    void Update()
+    {
+        // Spaceキーで背景切り替え
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isWhiteBackground = !isWhiteBackground;
+            backgroundRenderer.color = isWhiteBackground ? whiteColor : blackColor;
+            // 背景と逆の色に一瞬だけプレイヤーを変える
+            playerRenderer.color = isWhiteBackground ? blackColor : whiteColor;
+        }
+        // プレイヤーを徐々に背景色に近づけて消す
+        playerRenderer.color = Color.Lerp(playerRenderer.color, backgroundRenderer.color, colorLerpSpeed * Time.deltaTime);
+    }
 }
+
+
