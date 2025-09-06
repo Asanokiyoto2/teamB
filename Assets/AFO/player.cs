@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class player : MonoBehaviour
 {
@@ -7,15 +8,19 @@ public class player : MonoBehaviour
     public float moveSpeed = 10;
     private int Maxlife = 3;
     private int life;
-    public float blinkDuration = 2f;       // 点滅する合計時間（秒）
-    public float blinkInterval = 0.2f;     // 点滅の間隔（秒）
-    private Renderer playerRenderer;
+
+    private SpriteRenderer spriteRenderer;
     private bool isBlinking = false;
+
+    public float blinkDuration = 2.0f;
+    public float blinkInterval = 0.2f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerRenderer = GetComponent<Renderer>();
+       
+      
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         life = Maxlife;
     }
 
@@ -49,9 +54,38 @@ public class player : MonoBehaviour
                 life++;
                 Debug.Log(life);
             }
+            StartBlinking();
             Destroy(collision.gameObject);
         }
     }
+
+    void StartBlinking()
+    {
+        if (!isBlinking)
+        {
+            StartCoroutine(BlinkCoroutine());
+        }
+    }
+
+    IEnumerator BlinkCoroutine()
+    {
+        isBlinking = true;
+        float timer = 0f;
+
+        while (timer < blinkDuration)
+        {
+            spriteRenderer.enabled = !spriteRenderer.enabled;
+            yield return new WaitForSeconds(blinkInterval);
+            timer += blinkInterval;
+        }
+
+        spriteRenderer.enabled = true; // 最後に表示状態に戻す
+        isBlinking = false;
+    }
+
+
+
+
 
 
     void Die()
