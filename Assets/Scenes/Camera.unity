@@ -1553,7 +1553,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4db2a48526da24daeab6039c141f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
 --- !u!58 &1961067346
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1694,7 +1693,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1961067344}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9076b41ac8eebbc40a26a83413bc3b99, type: 3}
   m_Name: 
