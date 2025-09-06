@@ -50,7 +50,7 @@ public class playerControll : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
         SceneManager.LoadScene("Game over");
     }
 
