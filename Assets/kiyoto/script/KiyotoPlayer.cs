@@ -114,12 +114,20 @@ public class KiyotoPlayer : MonoBehaviour
 
         }
 
+        //ゴールに触れたとき
+        if(collision.gameObject.CompareTag("Goal"))
+        {
+            SceneManager.LoadScene("gameclear");
+        }
+
+
+
     }
 
     // ノックバック処理
 
     private IEnumerator ApplyKnockback(Vector2 direction)
-
+        
     {
 
         rb.linearVelocity = Vector2.zero; // いったん止める
