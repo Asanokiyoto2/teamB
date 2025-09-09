@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 370282417}
   - component: {fileID: 370282419}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: Goal
   m_TagString: Goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2540,6 +2540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc5812480c53424c97beb76f368de4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goal: {fileID: 370282418}
   Maxlife: 3
   life: 0
   moveSpeed: 5
