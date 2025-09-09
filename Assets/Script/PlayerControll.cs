@@ -114,6 +114,12 @@ public class PlayerControll : MonoBehaviour
 
         }
 
+        //ゴールに触れたとき
+        if (collision.gameObject.CompareTag("Goal"))
+        {
+            SceneManager.LoadScene("gameclear");
+        }
+
     }
 
     // ノックバック処理
