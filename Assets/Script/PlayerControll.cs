@@ -1,12 +1,17 @@
 ﻿using System.Collections;
+
 using UnityEngine;
+
 using UnityEngine.SceneManagement;
 
 public class PlayerControll : MonoBehaviour
 
 {
+
     [Header("ゴール設定")]
+
     public Transform goal;
+
     private float startDistance;  // ゲーム開始時の距離
 
     [Header("ライフ設定")]
@@ -29,6 +34,10 @@ public class PlayerControll : MonoBehaviour
 
     private bool tookDamage = false; // ダメージ中フラグ
 
+    private Collider2D playerCol;
+
+    private Collider2D goalCol;
+
     void Start()
 
     {
@@ -37,10 +46,18 @@ public class PlayerControll : MonoBehaviour
 
         life = Maxlife;
 
-        Collider2D playerCol = GetComponent<Collider2D>();
-        Collider2D goalCol = goal.GetComponent<Collider2D>();
+        // コライダーを取得
+
+        playerCol = GetComponent<Collider2D>();
+
+        goalCol = goal.GetComponent<Collider2D>();
+
+        // ゲーム開始時の「表面同士の距離」を記録
+
         Vector2 pointOnGoal = goalCol.ClosestPoint(transform.position);
+
         Vector2 pointOnPlayer = playerCol.ClosestPoint(goal.position);
+
         startDistance = Vector2.Distance(pointOnPlayer, pointOnGoal);
 
     }
@@ -63,13 +80,24 @@ public class PlayerControll : MonoBehaviour
 
         }
 
-        ///ゴールまでの距離計算///
-        // 現在の距離
-        float currentDistance = Vector2.Distance(transform.position, goal.position);
+        // ===== ゴールまでの距離計算 =====
+
+        // 表面同士の最短距離を測る
+
+        Vector2 pointOnGoal = goalCol.ClosestPoint(transform.position);
+
+        Vector2 pointOnPlayer = playerCol.ClosestPoint(goal.position);
+
+        float currentDistance = Vector2.Distance(pointOnPlayer, pointOnGoal);
+
         // ゴールまでの進捗を 0〜50 に変換
+
         float progress = (1f - (currentDistance / startDistance)) * 50f;
+
         // 小数点切り捨てて整数化
+
         int distanceSteps = Mathf.Clamp(Mathf.FloorToInt(progress), 0, 50);
+
         Debug.Log("ゴールまであと: " + (50 - distanceSteps) + " / 50");
 
     }
@@ -120,18 +148,20 @@ public class PlayerControll : MonoBehaviour
 
                 life++;
 
-                
-
             }
 
             Destroy(collision.gameObject);
 
         }
 
-        //ゴールに触れたとき
+        // ゴールに触れたとき
+
         if (collision.gameObject.CompareTag("Goal"))
+
         {
+
             SceneManager.LoadScene("gameclear");
+
         }
 
     }
@@ -162,9 +192,8 @@ public class PlayerControll : MonoBehaviour
 
         SceneManager.LoadScene("Game over");
 
-        // TODO: リスタートやシーン切り替えの処理をここに書く
-
     }
 
 }
+
 
