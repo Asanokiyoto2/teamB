@@ -97,7 +97,11 @@ public class PlayerControll : MonoBehaviour
         // 小数点切り捨てて整数化
 
         int distanceSteps = Mathf.Clamp(Mathf.FloorToInt(progress), 0, 50);
-
+        // ゴールにほぼ到達していたら強制的に50にする
+        if (currentDistance < 0.1f) // 0.5fは調整可
+        {
+            distanceSteps = 50;
+        }
         Debug.Log("ゴールまであと: " + (50 - distanceSteps) + " / 50");
 
     }
