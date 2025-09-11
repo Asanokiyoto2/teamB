@@ -1,54 +1,88 @@
 using UnityEngine;
-using System.Collections;
+
 public class EnemyDrop : MonoBehaviour
+
 {
+
     private Rigidbody2D rb;
+
     private bool isFalling = false;
-    [Header("揺れる時間")]
-    public float shakeDuration = 0.5f;
-    [Header("揺れ幅")]
-    public float shakeAmount = 0.1f;
-    private Vector3 originalPos;
+
+    [Header("揺れの設定")]
+
+    public float shakeAmount = 0.05f; // 揺れの大きさ
+
+    public float shakeSpeed = 5f;     // 揺れる速さ
+
+    private Vector3 startPos;
+
     void Start()
+
     {
+
         rb = GetComponent<Rigidbody2D>();
-        rb.bodyType = RigidbodyType2D.Kinematic; // 最初は固定
-        originalPos = transform.position;
+
+        rb.bodyType = RigidbodyType2D.Kinematic; // 最初は動かない
+
+        startPos = transform.position;
+
     }
-    void OnTriggerEnter2D(Collider2D other)
+
+    void Update()
+
     {
-        // プレイヤーが下を通ったら落下準備
-        if (other.CompareTag("Player") && !isFalling)
+
+        if (!isFalling)
+
         {
-            StartCoroutine(ShakeAndFall());
+
+            // サイン波で左右に揺れる
+
+            float offsetX = Mathf.Sin(Time.time * shakeSpeed) * shakeAmount;
+
+            transform.position = startPos + new Vector3(offsetX, 0f, 0f);
+
         }
+
     }
-    IEnumerator ShakeAndFall()
+
+    public void TriggerFall()
+
     {
-        isFalling = true;
-        float elapsed = 0f;
-        // ツララがプルプル揺れる演出
-        while (elapsed < shakeDuration)
+
+        if (!isFalling)
+
         {
-            transform.position = originalPos + (Vector3)Random.insideUnitCircle * shakeAmount;
-            elapsed += Time.deltaTime;
-            yield return null;
+
+            isFalling = true;
+
+            rb.bodyType = RigidbodyType2D.Dynamic; // 落下開始
+
         }
-        transform.position = originalPos; // 揺れ後、元の位置に戻す
-        rb.bodyType = RigidbodyType2D.Dynamic; // 重力ONで落下開始
+
     }
+
     void OnCollisionEnter2D(Collision2D collision)
+
     {
-        // 地面に当たったら消える
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            Destroy(gameObject, 0.2f);
-        }
-        // プレイヤーに当たったらダメージ
+
         if (collision.gameObject.CompareTag("Player"))
+
         {
-            collision.gameObject.GetComponent<PlayerControll>().life--;
             Destroy(gameObject);
+            // ライフを減らす処理をここに追加
+
         }
+
+        if (collision.gameObject.CompareTag("Ground"))
+
+        {
+
+            Destroy(gameObject); // 地面に当たったら消える
+
+        }
+
     }
+
 }
+
