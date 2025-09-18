@@ -38,6 +38,8 @@ public class KiyotoPlayer : MonoBehaviour
 
     private Collider2D goalCol;
 
+    private bool isBarrier = false;
+
     void Start()
 
     {
@@ -102,7 +104,7 @@ public class KiyotoPlayer : MonoBehaviour
         {
             distanceSteps = 50;
         }
-        Debug.Log("ゴールまであと: " + (50 - distanceSteps) + " / 50");
+        //Debug.Log("ゴールまであと: " + (50 - distanceSteps) + " / 50");
 
     }
 
@@ -115,10 +117,19 @@ public class KiyotoPlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") && !tookDamage)
 
         {
+            if(!isBarrier)
+            {
+                life--;
+                Debug.Log(life);
+            }
+            else
+            {
+                isBarrier = false;
+            }
 
             tookDamage = true;
 
-            life--;
+            
 
             if (life <= 0)
 
@@ -134,7 +145,7 @@ public class KiyotoPlayer : MonoBehaviour
 
             Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
 
-            Debug.Log("Knockback開始: " + knockbackDirection);
+            //Debug.Log("Knockback開始: " + knockbackDirection);
 
             StartCoroutine(ApplyKnockback(knockbackDirection));
 
@@ -156,6 +167,12 @@ public class KiyotoPlayer : MonoBehaviour
 
             Destroy(collision.gameObject);
 
+        }
+
+        if(collision.gameObject.CompareTag("Barrier"))
+        {
+            isBarrier = true;
+            Destroy(collision.gameObject);
         }
 
         // ゴールに触れたとき
