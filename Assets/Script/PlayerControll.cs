@@ -1,12 +1,13 @@
 ﻿using System.Collections;
-
 using UnityEngine;
-
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class PlayerControll : MonoBehaviour
 
 {
+    [Header("UI")]
+    public TextMeshProUGUI goalDistanceText;
     public ColorSwitcher colorSwitcher;
     [Header("ゴール設定")]
 
@@ -37,6 +38,7 @@ public class PlayerControll : MonoBehaviour
     private Collider2D playerCol;
 
     private Collider2D goalCol;
+    private bool isBarrier = false;
 
     void Start()
 
@@ -103,23 +105,41 @@ public class PlayerControll : MonoBehaviour
         {
             distanceSteps = 50;
         }
-        Debug.Log("ゴールまであと: " + (50 - distanceSteps) + " / 50");
+        //Debug.Log("ゴールまであと: " + (50 - distanceSteps) + " / 50");
+        // UI に表示
+        if (goalDistanceText != null)
+        {
+            goalDistanceText.text = $"ゴールまであと: {50 - distanceSteps} / 50";
+        }
 
     }
 
     void OnCollisionEnter2D(Collision2D collision)
 
     {
+        //バリアに触れたとき
+        if (collision.gameObject.CompareTag("Barrier"))
+        {
+            isBarrier = true;
+            Destroy(collision.gameObject);
+        }
 
         // 敵に触れたとき
 
         if (collision.gameObject.CompareTag("Enemy") && !tookDamage)
 
         {
+            if (!isBarrier)
+            {
+                life--;
+                Debug.Log(life);
+            }
+            else
+            {
+                isBarrier = false;
+            }
 
             tookDamage = true;
-
-            life--;
 
             if (life <= 0)
 
