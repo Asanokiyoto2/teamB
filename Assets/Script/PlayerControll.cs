@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerControll : MonoBehaviour
 
 {
-
+    public ColorSwitcher colorSwitcher;
     [Header("ゴール設定")]
 
     public Transform goal;
@@ -59,6 +59,7 @@ public class PlayerControll : MonoBehaviour
         Vector2 pointOnPlayer = playerCol.ClosestPoint(goal.position);
 
         startDistance = Vector2.Distance(pointOnPlayer, pointOnGoal);
+        
 
     }
 
@@ -168,6 +169,15 @@ public class PlayerControll : MonoBehaviour
 
         }
 
+        if (colorSwitcher.isWhiteBackground && collision.gameObject.CompareTag("Render"))
+        {
+            colorSwitcher.playerRenderer.color = colorSwitcher.blackColor;
+        }
+        else if (!colorSwitcher.isWhiteBackground && collision.gameObject.CompareTag("Render"))
+        {
+            colorSwitcher.playerRenderer.color = colorSwitcher.whiteColor;
+        }
+
     }
 
     // ノックバック処理
@@ -197,6 +207,7 @@ public class PlayerControll : MonoBehaviour
         SceneManager.LoadScene("Game over");
 
     }
+
 
 }
 

@@ -9,7 +9,7 @@ public class ColorSwitcher : MonoBehaviour
     public Color whiteColor = Color.white;
     [Header("F‚Ì•Ï‰»‘¬“x")]
     public float colorLerpSpeed = 1f; // 1•b‚Å”wŒi‚É‹ß‚Ã‚­‘¬‚³
-    private bool isWhiteBackground = true;
+    public bool isWhiteBackground = true;
     void Start()
     {
         // ‰Šúİ’è
@@ -29,6 +29,7 @@ public class ColorSwitcher : MonoBehaviour
         // ƒvƒŒƒCƒ„[‚ğ™X‚É”wŒiF‚É‹ß‚Ã‚¯‚ÄÁ‚·
         playerRenderer.color = Color.Lerp(playerRenderer.color, backgroundRenderer.color, colorLerpSpeed * Time.deltaTime);
     }
+    
 }
 
 

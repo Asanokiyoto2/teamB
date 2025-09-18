@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Goal
   - Barrier
+  - Render
   layers:
   - Default
   - TransparentFX
