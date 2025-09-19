@@ -14,6 +14,11 @@ public class player : MonoBehaviour
 
     public float blinkDuration = 2.0f;
     public float blinkInterval = 0.2f;
+    public float hoverAmplitude = 0.5f;    // —h‚ê‚Ì‘å‚«‚³
+    public float hoverFrequency = 1.0f;    // —h‚ê‚Ì‘¬‚³
+
+    private Vector3 startPos;
+    private float hoverTimer = 0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,6 +27,7 @@ public class player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         life = Maxlife;
+        startPos = transform.position;
     }
 
     // Update is called once per frame
@@ -33,6 +39,10 @@ public class player : MonoBehaviour
         Vector2 inputDirection = new Vector2(MoveX, MoveY).normalized;
 
         rb.linearVelocity = new Vector2(inputDirection.x * moveSpeed, inputDirection.y * moveSpeed);
+        hoverTimer += Time.deltaTime * hoverFrequency;
+        float hoverOffset = Mathf.Sin(hoverTimer) * hoverAmplitude;
+
+        transform.position = new Vector3(transform.position.x, startPos.y + hoverOffset, transform.position.z);
 
     }
     void OnCollisionEnter2D(Collision2D collision)
