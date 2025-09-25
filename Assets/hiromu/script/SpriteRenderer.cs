@@ -1,15 +1,25 @@
 using UnityEngine;
 
-public class MakeTransparent : MonoBehaviour
+public class WhiteBlackBlink : MonoBehaviour
 {
+    public float blinkInterval = 0.5f; // 点滅間隔
+
+    private SpriteRenderer spriteRenderer;
+    private bool isWhite = true;
+
     void Start()
     {
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        if (sr != null)
-        {
-            Color color = sr.color;
-            color.a = 0f; // アルファ値（0 = 完全に透明）
-            sr.color = color;
-        }
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        InvokeRepeating(nameof(ToggleColor), 0f, blinkInterval);
+    }
+
+    void ToggleColor()
+    {
+        if (isWhite)
+            spriteRenderer.color = Color.black;
+        else
+            spriteRenderer.color = Color.white;
+
+        isWhite = !isWhite;
     }
 }
