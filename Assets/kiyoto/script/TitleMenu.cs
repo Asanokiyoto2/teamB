@@ -8,6 +8,15 @@ public class TitleMenu : MonoBehaviour
         // ゲームシーンへ遷移
         SceneManager.LoadScene("MainGameScene");
     }
+    void Update()
+    {
+        // Enterキーが押されたらシーンを切り替える
+        if (Input.GetKeyDown(KeyCode.Return))  // Return = Enterキー
+        {
+            SceneManager.LoadScene("MainGameScene");
+            
+        }
+    }
     // 終了ボタン
     public void OnExitButton()
     {
