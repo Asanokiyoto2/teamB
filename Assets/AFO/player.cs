@@ -19,6 +19,8 @@ public class player : MonoBehaviour
 
     private Vector3 startPos;
     private float hoverTimer = 0f;
+    private Animator animator;
+    private bool isDead = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,6 +30,7 @@ public class player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         life = Maxlife;
         startPos = transform.position;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -42,7 +45,7 @@ public class player : MonoBehaviour
         hoverTimer += Time.deltaTime * hoverFrequency;
         float hoverOffset = Mathf.Sin(hoverTimer) * hoverAmplitude;
 
-        transform.position = new Vector3(transform.position.x, startPos.y + hoverOffset, transform.position.z);
+        //transform.position = new Vector3(transform.position.x, startPos.y + hoverOffset, transform.position.z);
 
     }
     void OnCollisionEnter2D(Collision2D collision)
@@ -98,9 +101,21 @@ public class player : MonoBehaviour
 
 
 
-    void Die()
+    IEnumerator Die()
     {
-        Destroy(gameObject);
+        isDead = true;
+
+        // 死亡アニメーション開始（Animatorのトリガーを使う想定）
+        animator.SetTrigger("Die");
+
+        // アニメーションの長さを取得
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        float animLength = stateInfo.length;
+
+        // 死亡アニメーションの長さだけ待つ（もしくは適切な秒数）
+        yield return new WaitForSeconds(animLength);
+
+        // ゲームオーバー画面に遷移
         SceneManager.LoadScene("Game over");
     }
 
