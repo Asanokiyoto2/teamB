@@ -1,13 +1,14 @@
 using System.Collections;
-
 using UnityEngine;
-
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class KiyotoPlayer : MonoBehaviour
 
 {
-
+    [Header("UI")]
+    public TextMeshProUGUI goalDistanceText;
+    public ColorSwitcher colorSwitcher;
     [Header("ゴール設定")]
 
     public Transform goal;
@@ -37,8 +38,9 @@ public class KiyotoPlayer : MonoBehaviour
     private Collider2D playerCol;
 
     private Collider2D goalCol;
-
     private bool isBarrier = false;
+    public bool isGreen = false;
+    private float greenTime = 0;
 
     void Start()
 
@@ -61,6 +63,7 @@ public class KiyotoPlayer : MonoBehaviour
         Vector2 pointOnPlayer = playerCol.ClosestPoint(goal.position);
 
         startDistance = Vector2.Distance(pointOnPlayer, pointOnGoal);
+
 
     }
 
@@ -105,19 +108,41 @@ public class KiyotoPlayer : MonoBehaviour
             distanceSteps = 50;
         }
         //Debug.Log("ゴールまであと: " + (50 - distanceSteps) + " / 50");
+        // UI に表示
+        if (goalDistanceText != null)
+        {
+            goalDistanceText.text = $"ゴールまであと: {50 - distanceSteps} / 50";
+        }
+
+        if (isGreen)
+        {
+            greenTime = Time.time;
+            if (greenTime > 2.0)
+            {
+                isGreen = false;
+                greenTime = 0;
+            }
+        }
+
 
     }
 
     void OnCollisionEnter2D(Collision2D collision)
 
     {
+        //バリアに触れたとき
+        if (collision.gameObject.CompareTag("Barrier"))
+        {
+            isBarrier = true;
+            Destroy(collision.gameObject);
+        }
 
         // 敵に触れたとき
 
         if (collision.gameObject.CompareTag("Enemy") && !tookDamage)
 
         {
-            if(!isBarrier)
+            if (!isBarrier)
             {
                 life--;
                 Debug.Log(life);
@@ -128,8 +153,6 @@ public class KiyotoPlayer : MonoBehaviour
             }
 
             tookDamage = true;
-
-            
 
             if (life <= 0)
 
@@ -145,7 +168,7 @@ public class KiyotoPlayer : MonoBehaviour
 
             Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
 
-            //Debug.Log("Knockback開始: " + knockbackDirection);
+            Debug.Log("Knockback開始: " + knockbackDirection);
 
             StartCoroutine(ApplyKnockback(knockbackDirection));
 
@@ -169,12 +192,6 @@ public class KiyotoPlayer : MonoBehaviour
 
         }
 
-        if(collision.gameObject.CompareTag("Barrier"))
-        {
-            isBarrier = true;
-            Destroy(collision.gameObject);
-        }
-
         // ゴールに触れたとき
 
         if (collision.gameObject.CompareTag("Goal"))
@@ -183,6 +200,24 @@ public class KiyotoPlayer : MonoBehaviour
 
             SceneManager.LoadScene("gameclear");
 
+        }
+
+        if (colorSwitcher.isWhiteBackground && collision.gameObject.CompareTag("Render"))
+        {
+            colorSwitcher.playerRenderer.color = colorSwitcher.blackColor;
+            Destroy(collision.gameObject);
+        }
+        else if (!colorSwitcher.isWhiteBackground && collision.gameObject.CompareTag("Render"))
+        {
+            colorSwitcher.playerRenderer.color = colorSwitcher.whiteColor;
+            Destroy(collision.gameObject);
+        }
+
+        if(collision.gameObject.CompareTag("Green"))
+        {
+            isGreen = true;
+            
+            Destroy(collision.gameObject);
         }
 
     }
@@ -214,6 +249,7 @@ public class KiyotoPlayer : MonoBehaviour
         SceneManager.LoadScene("Game over");
 
     }
+
 
 }
 

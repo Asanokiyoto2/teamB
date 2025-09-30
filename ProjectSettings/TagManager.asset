@@ -10,6 +10,7 @@ TagManager:
   - Goal
   - Barrier
   - Render
+  - Green
   layers:
   - Default
   - TransparentFX

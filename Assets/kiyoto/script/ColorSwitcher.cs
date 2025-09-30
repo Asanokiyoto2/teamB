@@ -10,6 +10,7 @@ public class ColorSwitcher : MonoBehaviour
     [Header("F‚Ì•Ï‰»‘¬“x")]
     public float colorLerpSpeed = 1f; // 1•b‚Å”wŒi‚É‹ß‚Ã‚­‘¬‚³
     public bool isWhiteBackground = true;
+    public KiyotoPlayer player;//
     void Start()
     {
         // ‰Šúİ’è

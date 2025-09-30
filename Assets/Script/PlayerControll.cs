@@ -61,7 +61,7 @@ public class PlayerControll : MonoBehaviour
         Vector2 pointOnPlayer = playerCol.ClosestPoint(goal.position);
 
         startDistance = Vector2.Distance(pointOnPlayer, pointOnGoal);
-        
+
 
     }
 
