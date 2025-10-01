@@ -20,6 +20,11 @@ public class TitleMenu : MonoBehaviour
             SceneManager.LoadScene("MainGameScene");
             
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Operating Instructions");
+
+        }
     }
     // èIóπÉ{É^Éì
     public void OnExitButton()
