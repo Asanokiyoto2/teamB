@@ -175,6 +175,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 1W (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -394,6 +406,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 1W (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -428,15 +452,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Color.b
-      value: 0.041073352
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Color.g
-      value: 0.6698113
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Color.r
-      value: 0.3905321
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_SortingOrder
@@ -550,6 +574,18 @@ PrefabInstance:
     - target: {fileID: 4324452068145112044, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
       propertyPath: m_Name
       value: Enemy 1W (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -694,6 +730,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy  2W (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7207386930225179232, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_LocalScale.x
       value: 6
@@ -758,6 +806,18 @@ PrefabInstance:
     - target: {fileID: 479888326696102770, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Name
       value: Enemy  2W (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7207386930225179232, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_LocalScale.x
@@ -1912,6 +1972,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy  2W (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7207386930225179232, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.0103587
@@ -2021,6 +2093,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 1W (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2082,6 +2166,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 1W (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2098,6 +2194,18 @@ PrefabInstance:
     - target: {fileID: 479888326696102770, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Name
       value: Enemy  2W (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7207386930225179232, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_LocalScale.x
@@ -2298,6 +2406,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy  2W (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7207386930225179232, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -2403,6 +2523,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 1W (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2419,6 +2551,18 @@ PrefabInstance:
     - target: {fileID: 479888326696102770, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Name
       value: Enemy  2W (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7207386930225179232, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_LocalScale.x
@@ -2488,6 +2632,18 @@ PrefabInstance:
     - target: {fileID: 479888326696102770, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Name
       value: Enemy  2W (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7207386930225179232, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_LocalScale.x
@@ -2662,6 +2818,18 @@ PrefabInstance:
     - target: {fileID: 4324452068145112044, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
       propertyPath: m_Name
       value: Enemy 1W (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3118,6 +3286,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy  2W (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7207386930225179232, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -3329,6 +3509,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy  2W (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7207386930225179232, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.0103587
@@ -3403,7 +3595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1488006705
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3776,6 +3968,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy  2W (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7207386930225179232, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.0103587
@@ -3844,6 +4048,18 @@ PrefabInstance:
     - target: {fileID: 479888326696102770, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Name
       value: Enemy  2W (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7207386930225179232, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_LocalScale.x
@@ -4037,15 +4253,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Color.b
-      value: 0.27166638
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Color.g
-      value: 0.8553459
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Color.r
-      value: 0.3475761
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_SortingOrder
@@ -4115,6 +4331,18 @@ PrefabInstance:
     - target: {fileID: 479888326696102770, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Name
       value: Enemy  2W (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7207386930225179232, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_LocalScale.x
@@ -4198,6 +4426,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy  2W (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7207386930225179232, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8667
@@ -4263,7 +4503,6 @@ GameObject:
   - component: {fileID: 1830893288}
   - component: {fileID: 1830893292}
   - component: {fileID: 1830893293}
-  - component: {fileID: 1830893294}
   - component: {fileID: 1830893295}
   - component: {fileID: 1830893296}
   - component: {fileID: 1830893297}
@@ -4384,26 +4623,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b790d599b676a4bb3e3ec8edc78a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1830893294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830893286}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fc5812480c53424c97beb76f368de4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goalDistanceText: {fileID: 819900069}
-  colorSwitcher: {fileID: 596117646}
-  goal: {fileID: 370282418}
-  Maxlife: 3
-  life: 0
-  moveSpeed: 5
-  knockbackForce: 5
-  knockbackDuration: 0.2
 --- !u!114 &1830893295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4920,6 +5139,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 1W
       objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5086,6 +5317,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy  2W (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7207386930225179232, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_LocalScale.x
       value: 6
@@ -5199,6 +5442,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 1W (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5290,6 +5545,18 @@ PrefabInstance:
     - target: {fileID: 479888326696102770, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Name
       value: Enemy  2W (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7207386930225179232, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_LocalScale.x
@@ -5527,6 +5794,18 @@ PrefabInstance:
     - target: {fileID: 479888326696102770, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Name
       value: Enemy  2W (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7207386930225179232, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_LocalScale.x
@@ -5863,6 +6142,18 @@ PrefabInstance:
     - target: {fileID: 4324452068145112044, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
       propertyPath: m_Name
       value: Enemy 1W (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
