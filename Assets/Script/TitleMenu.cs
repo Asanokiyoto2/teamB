@@ -2,11 +2,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class TitleMenu : MonoBehaviour
 {
+
     // ゲーム開始ボタン
+    
     public void OnStartButton()
     {
         // ゲームシーンへ遷移
         SceneManager.LoadScene("MainGameScene");
+        SceneManager.LoadScene("setumeiScene");
     }
     public void OnTitleButton()
     {
@@ -14,6 +17,11 @@ public class TitleMenu : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))  // Return = Enterキー
+        {
+            SceneManager.LoadScene("setumeiScene");
+
+        }
         // Enterキーが押されたらシーンを切り替える
         if (Input.GetKeyDown(KeyCode.Return))  // Return = Enterキー
         {
