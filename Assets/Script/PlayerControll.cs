@@ -1,19 +1,28 @@
 ﻿using System.Collections;
+
+using System.Collections.Generic;
+
 using UnityEngine;
+
 using TMPro;
+
 using UnityEngine.SceneManagement;
 
 public class PlayerControll : MonoBehaviour
 
 {
+
     [Header("UI")]
+
     public TextMeshProUGUI goalDistanceText;
+
     public ColorSwitcher colorSwitcher;
+
     [Header("ゴール設定")]
 
     public Transform goal;
 
-    private float startDistance;  // ゲーム開始時の距離
+    private float startDistance;
 
     [Header("ライフ設定")]
 
@@ -23,22 +32,37 @@ public class PlayerControll : MonoBehaviour
 
     [Header("移動設定")]
 
-    public float moveSpeed = 5f;     // 移動速度
+    public float moveSpeed = 5f;
 
     [Header("ノックバック設定")]
 
-    public float knockbackForce = 5f;       // ノックバックの強さ
+    public float knockbackForce = 5f;
 
-    public float knockbackDuration = 0.2f;  // ノックバックの時間
+    public float knockbackDuration = 0.2f;
 
     private Rigidbody2D rb;
 
-    private bool tookDamage = false; // ダメージ中フラグ
+    private bool tookDamage = false;
 
     private Collider2D playerCol;
 
     private Collider2D goalCol;
+
     private bool isBarrier = false;
+
+    public bool isGreen = false;
+
+    private float greenTime = 0;
+
+    [SerializeField] private Sprite[] balloonSprites;
+
+    [SerializeField] private SpriteRenderer balloonRenderer;
+
+    private BalloonLife balloonLife;
+
+    // ★ 今フレームで当たった敵を一度だけ記録する
+
+    private HashSet<GameObject> enemiesHitThisFrame = new HashSet<GameObject>();
 
     void Start()
 
@@ -48,13 +72,9 @@ public class PlayerControll : MonoBehaviour
 
         life = Maxlife;
 
-        // コライダーを取得
-
         playerCol = GetComponent<Collider2D>();
 
         goalCol = goal.GetComponent<Collider2D>();
-
-        // ゲーム開始時の「表面同士の距離」を記録
 
         Vector2 pointOnGoal = goalCol.ClosestPoint(transform.position);
 
@@ -62,6 +82,15 @@ public class PlayerControll : MonoBehaviour
 
         startDistance = Vector2.Distance(pointOnPlayer, pointOnGoal);
 
+        if (balloonRenderer != null && balloonSprites.Length > 0)
+
+        {
+
+            balloonRenderer.sprite = balloonSprites[0];
+
+        }
+
+        balloonLife = GetComponent<BalloonLife>();
 
     }
 
@@ -69,23 +98,19 @@ public class PlayerControll : MonoBehaviour
 
     {
 
-        // ===== 移動処理 =====
-
-        if (!tookDamage) // ノックバック中は操作できない
+        if (!tookDamage)
 
         {
 
-            float moveX = Input.GetAxis("Horizontal"); // 左右入力
+            float moveX = Input.GetAxis("Horizontal");
 
-            float moveY = Input.GetAxis("Vertical");   // 上下入力
+            float moveY = Input.GetAxis("Vertical");
 
             rb.linearVelocity = new Vector2(moveX * moveSpeed, moveY * moveSpeed);
 
         }
 
-        // ===== ゴールまでの距離計算 =====
-
-        // 表面同士の最短距離を測る
+        // ゴールまでの距離表示
 
         Vector2 pointOnGoal = goalCol.ClosestPoint(transform.position);
 
@@ -93,23 +118,70 @@ public class PlayerControll : MonoBehaviour
 
         float currentDistance = Vector2.Distance(pointOnPlayer, pointOnGoal);
 
-        // ゴールまでの進捗を 0〜50 に変換
-
         float progress = (1f - (currentDistance / startDistance)) * 50f;
 
-        // 小数点切り捨てて整数化
-
         int distanceSteps = Mathf.Clamp(Mathf.FloorToInt(progress), 0, 50);
-        // ゴールにほぼ到達していたら強制的に50にする
-        if (currentDistance < 0.1f) // 0.5fは調整可
-        {
-            distanceSteps = 50;
-        }
-        //Debug.Log("ゴールまであと: " + (50 - distanceSteps) + " / 50");
-        // UI に表示
+
+        if (currentDistance < 0.1f) distanceSteps = 50;
+
         if (goalDistanceText != null)
+
         {
+
             goalDistanceText.text = $"ゴールまであと: {50 - distanceSteps} / 50";
+
+        }
+
+        if (isGreen && Time.time - greenTime > 2.0f)
+
+        {
+
+            isGreen = false;
+
+        }
+
+        // === ★ フレーム最後にまとめて処理 ===
+
+        if (enemiesHitThisFrame.Count > 0)
+
+        {
+
+            int damage = enemiesHitThisFrame.Count;
+
+            enemiesHitThisFrame.Clear();
+
+            if (!isBarrier && !isGreen)
+
+            {
+
+                life -= damage;
+
+                if (life < 0) life = 0;
+
+                balloonLife.TakeDamage(damage);
+
+                UpdateBalloonSprite();
+
+                Debug.Log("ライフ残り: " + life);
+
+                if (life <= 0)
+
+                {
+
+                    Die();
+
+                }
+
+            }
+
+            else
+
+            {
+
+                isBarrier = false;
+
+            }
+
         }
 
     }
@@ -117,51 +189,44 @@ public class PlayerControll : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
 
     {
-        //バリアに触れたとき
+
+        if (collision.gameObject.CompareTag("Enemy"))
+
+        {
+
+            // ★ 同じ敵を1フレーム内で複数回カウントしない
+
+            if (!enemiesHitThisFrame.Contains(collision.gameObject))
+
+            {
+
+                enemiesHitThisFrame.Add(collision.gameObject);
+
+                // ノックバックは最初に当たった敵から発生
+
+                if (!tookDamage && !isBarrier && !isGreen)
+
+                {
+
+                    Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
+
+                    StartCoroutine(ApplyKnockback(knockbackDirection));
+
+                }
+
+            }
+
+        }
+
         if (collision.gameObject.CompareTag("Barrier"))
+
         {
+
             isBarrier = true;
+
             Destroy(collision.gameObject);
-        }
-
-        // 敵に触れたとき
-
-        if (collision.gameObject.CompareTag("Enemy") && !tookDamage)
-
-        {
-            if (!isBarrier)
-            {
-                life--;
-                Debug.Log(life);
-            }
-            else
-            {
-                isBarrier = false;
-            }
-
-            tookDamage = true;
-
-            if (life <= 0)
-
-            {
-
-                Die();
-
-                return;
-
-            }
-
-            // ノックバック方向計算
-
-            Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
-
-            Debug.Log("Knockback開始: " + knockbackDirection);
-
-            StartCoroutine(ApplyKnockback(knockbackDirection));
 
         }
-
-        // アイテムに触れたとき
 
         if (collision.gameObject.CompareTag("Item"))
 
@@ -173,13 +238,13 @@ public class PlayerControll : MonoBehaviour
 
                 life++;
 
+                UpdateBalloonSprite();
+
             }
 
             Destroy(collision.gameObject);
 
         }
-
-        // ゴールに触れたとき
 
         if (collision.gameObject.CompareTag("Goal"))
 
@@ -190,35 +255,56 @@ public class PlayerControll : MonoBehaviour
         }
 
         if (colorSwitcher.isWhiteBackground && collision.gameObject.CompareTag("Render"))
+
         {
+
             colorSwitcher.playerRenderer.color = colorSwitcher.blackColor;
+
+            Destroy(collision.gameObject);
+
         }
+
         else if (!colorSwitcher.isWhiteBackground && collision.gameObject.CompareTag("Render"))
+
         {
+
             colorSwitcher.playerRenderer.color = colorSwitcher.whiteColor;
+
+            Destroy(collision.gameObject);
+
+        }
+
+        if (collision.gameObject.CompareTag("Green"))
+
+        {
+
+            isGreen = true;
+
+            greenTime = Time.time;
+
+            Destroy(collision.gameObject);
+
         }
 
     }
-
-    // ノックバック処理
 
     private IEnumerator ApplyKnockback(Vector2 direction)
 
     {
 
-        rb.linearVelocity = Vector2.zero; // いったん止める
+        tookDamage = true;
+
+        rb.linearVelocity = Vector2.zero;
 
         rb.AddForce(direction * knockbackForce, ForceMode2D.Impulse);
 
         yield return new WaitForSeconds(knockbackDuration);
 
-        rb.linearVelocity = Vector2.zero; // ノックバック終了時に止める
+        rb.linearVelocity = Vector2.zero;
 
-        tookDamage = false; // 再びダメージを受けられるようにする
+        tookDamage = false;
 
     }
-
-    // 死亡処理
 
     private void Die()
 
@@ -228,6 +314,21 @@ public class PlayerControll : MonoBehaviour
 
     }
 
+    private void UpdateBalloonSprite()
+
+    {
+
+        if (balloonRenderer != null && balloonSprites.Length > 0)
+
+        {
+
+            int index = Mathf.Clamp(Maxlife - life, 0, balloonSprites.Length - 1);
+
+            balloonRenderer.sprite = balloonSprites[index];
+
+        }
+
+    }
 
 }
 
