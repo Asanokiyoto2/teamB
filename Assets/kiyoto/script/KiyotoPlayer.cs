@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 public class KiyotoPlayer : MonoBehaviour
 
 {
-
+    //animator.SetInteger("TestInt", testint)
     [Header("UI")]
 
     public TextMeshProUGUI goalDistanceText;
@@ -75,14 +75,6 @@ public class KiyotoPlayer : MonoBehaviour
         // BalloonLife を必ず取得
 
         balloonLife = GetComponent<BalloonLife2>();
-
-        if (balloonLife == null)
-
-        {
-
-            Debug.LogError("BalloonLife コンポーネントがプレイヤーにアタッチされていません！");
-
-        }
 
         // 初期距離
 
@@ -239,25 +231,7 @@ public class KiyotoPlayer : MonoBehaviour
             {
 
                 life++;
-
-                // ★ nullチェック付きで呼ぶ
-
-                if (balloonLife != null)
-
-                {
-
-                    balloonLife.Heal(1);
-
-                }
-
-                else
-
-                {
-
-                    Debug.LogWarning("BalloonLife が見つからないので Heal は呼ばれませんでした。");
-
-                }
-
+                balloonLife.Heal(1);
             }
 
             Destroy(collision.gameObject);
