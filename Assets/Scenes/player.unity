@@ -594,7 +594,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc5812480c53424c97beb76f368de4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goalDistanceText: {fileID: 0}
+  colorSwitcher: {fileID: 0}
+  goal: {fileID: 0}
+  Maxlife: 3
+  life: 0
   moveSpeed: 10
+  knockbackForce: 5
+  knockbackDuration: 0.2
+  isGreen: 0
+  balloonSprites: []
+  balloonRenderer: {fileID: 0}
 --- !u!114 &1084766926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610,6 +620,8 @@ MonoBehaviour:
   moveSpeed: 10
   blinkDuration: 2
   blinkInterval: 0.2
+  hoverAmplitude: 0.5
+  hoverFrequency: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
