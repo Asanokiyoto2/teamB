@@ -452,15 +452,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Color.b
-      value: 0.041073352
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Color.g
-      value: 0.6698113
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Color.r
-      value: 0.3905321
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_SortingOrder
@@ -577,7 +577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
       propertyPath: m_Color.b
-      value: 0.14269924
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
       propertyPath: m_Color.g
@@ -585,7 +585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7952715208964970300, guid: 88c90e205909fb94181994a2a2621b25, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -893,7 +893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &370282417
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -958,7 +958,7 @@ Transform:
   m_GameObject: {fileID: 370282416}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.14, y: 4.16, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1426,7 +1426,7 @@ Transform:
   m_GameObject: {fileID: 772831151}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.35, y: -0, z: -10}
+  m_LocalPosition: {x: -6, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1511,7 +1511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &795592321
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2408,7 +2408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Color.g
@@ -2416,7 +2416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Color.r
-      value: 0.18382645
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7207386930225179232, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_LocalScale.x
@@ -3858,7 +3858,7 @@ Transform:
   m_GameObject: {fileID: 1560790698}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.997, y: -0.013, z: 0}
+  m_LocalPosition: {x: -5, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3973,7 +3973,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1629540458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4509,7 +4509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Color.b
-      value: 0.05698991
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Color.g
@@ -4517,7 +4517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5119188318334007631, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7207386930225179232, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
       propertyPath: m_LocalScale.x
@@ -4982,7 +4982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &2028529964
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5093,7 +5093,7 @@ Transform:
   m_GameObject: {fileID: 2028529963}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.76, y: 0.68, z: 0}
+  m_LocalPosition: {x: -14, y: 11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -12,7 +12,8 @@ using Unity.VisualScripting;
 public class KiyotoPlayer : MonoBehaviour
 
 {
-    //animator.SetInteger("TestInt", testint)
+    private Animator anim = null;
+    //anim.SetBool("damage", false)
     [Header("UI")]
 
     public TextMeshProUGUI goalDistanceText;
@@ -70,7 +71,6 @@ public class KiyotoPlayer : MonoBehaviour
 
         goalCol = goal.GetComponent<Collider2D>();
 
-        // BalloonLife を必ず取得
 
 
         // 初期距離
@@ -80,6 +80,7 @@ public class KiyotoPlayer : MonoBehaviour
         Vector2 pointOnPlayer = playerCol.ClosestPoint(goal.position);
 
         startDistance = Vector2.Distance(pointOnPlayer, pointOnGoal);
+        anim = GetComponent<Animator>();
 
     }
 
@@ -154,7 +155,10 @@ public class KiyotoPlayer : MonoBehaviour
                 noDamage = true;
                 life--;
 
-                if (life < 0) life = 0;
+                if(life == 2)
+                {
+                    anim.SetBool("damage", true);
+                }
 
 
 
