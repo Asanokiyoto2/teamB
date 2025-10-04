@@ -17,11 +17,11 @@ public class TitleMenu : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))  // Return = Enterキー
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene("setumeiScene");
 
-        }
+        }*/
         // Enterキーが押されたらシーンを切り替える
         if (Input.GetKeyDown(KeyCode.Return))  // Return = Enterキー
         {
