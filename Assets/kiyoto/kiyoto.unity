@@ -4226,7 +4226,7 @@ Transform:
   m_GameObject: {fileID: 1721189455}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.3, y: -1.2, z: 0}
+  m_LocalPosition: {x: 9.27, y: -0.52, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4501,7 +4501,6 @@ GameObject:
   - component: {fileID: 1830893300}
   - component: {fileID: 1830893299}
   - component: {fileID: 1830893298}
-  - component: {fileID: 1830893301}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4759,33 +4758,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 2.4, y: 1.8}
   m_Radius: 1.3
---- !u!114 &1830893301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830893286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e08227f2bbe48954f976dcdbf8c4ca7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  balloonRenderer: {fileID: 1830893288}
-  balloonSprites:
-  - {fileID: 21300000, guid: 45212ab225461414d96f408ea0e9eba9, type: 3}
-  - {fileID: 21300000, guid: 7410b20c1fc3bb14fbe80598080b417d, type: 3}
-  - {fileID: 21300000, guid: 65c10fa4966fc774abb17c076a2ee7ad, type: 3}
-  - {fileID: 21300000, guid: 3c1f86473c728da468952bf0ea3b360d, type: 3}
-  - {fileID: 21300000, guid: 8659e47d1cbe8b64ab5af5a1408cb88d, type: 3}
-  - {fileID: 21300000, guid: 26d654b5b0f54a443b2235dbda1761be, type: 3}
-  - {fileID: 21300000, guid: ffce2a2e8cdb2d84a8d6223e6c95a0df, type: 3}
-  - {fileID: 21300000, guid: 9a8183cef26bab843bc4c74245bf29e8, type: 3}
-  - {fileID: 21300000, guid: c2c5b19650ecd804d8115d9ac9689e54, type: 3}
-  - {fileID: 21300000, guid: d1dac4ec3295e794c92c59d0a03e7841, type: 3}
-  - {fileID: 21300000, guid: d5ff6f9e2f8905d45b997db5b2c7c311, type: 3}
-  - {fileID: 21300000, guid: 5005f854c2c7df045832215484d29da0, type: 3}
-  - {fileID: 21300000, guid: 406bf9823129dd74a9df6650e29a0f10, type: 3}
 --- !u!1001 &1842002084
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Animation3
+  m_Name: Breck
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,13 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: d1dac4ec3295e794c92c59d0a03e7841, type: 3}
+      value: {fileID: 21300000, guid: 7410b20c1fc3bb14fbe80598080b417d, type: 3}
     - time: 0.06666667
-      value: {fileID: 21300000, guid: d5ff6f9e2f8905d45b997db5b2c7c311, type: 3}
+      value: {fileID: 21300000, guid: 65c10fa4966fc774abb17c076a2ee7ad, type: 3}
     - time: 0.13333334
-      value: {fileID: 21300000, guid: 5005f854c2c7df045832215484d29da0, type: 3}
-    - time: 1
-      value: {fileID: 21300000, guid: 45212ab225461414d96f408ea0e9eba9, type: 3}
+      value: {fileID: 21300000, guid: 3c1f86473c728da468952bf0ea3b360d, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,16 +48,15 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: d1dac4ec3295e794c92c59d0a03e7841, type: 3}
-    - {fileID: 21300000, guid: d5ff6f9e2f8905d45b997db5b2c7c311, type: 3}
-    - {fileID: 21300000, guid: 5005f854c2c7df045832215484d29da0, type: 3}
-    - {fileID: 21300000, guid: 45212ab225461414d96f408ea0e9eba9, type: 3}
+    - {fileID: 21300000, guid: 7410b20c1fc3bb14fbe80598080b417d, type: 3}
+    - {fileID: 21300000, guid: 65c10fa4966fc774abb17c076a2ee7ad, type: 3}
+    - {fileID: 21300000, guid: 3c1f86473c728da468952bf0ea3b360d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.0166667
+    m_StopTime: 0.15
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

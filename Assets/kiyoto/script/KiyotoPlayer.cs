@@ -7,6 +7,7 @@ using UnityEngine;
 using TMPro;
 
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class KiyotoPlayer : MonoBehaviour
 
@@ -54,11 +55,8 @@ public class KiyotoPlayer : MonoBehaviour
 
     private float greenTime = 0;
 
-    [Header("風船アニメーション管理")]
+    private bool noDamage = false;
 
-    private BalloonLife2 balloonLife;
-
-    private HashSet<GameObject> enemiesHitThisFrame = new HashSet<GameObject>();
 
     void Start()
 
@@ -74,7 +72,6 @@ public class KiyotoPlayer : MonoBehaviour
 
         // BalloonLife を必ず取得
 
-        balloonLife = GetComponent<BalloonLife2>();
 
         // 初期距離
 
@@ -93,7 +90,7 @@ public class KiyotoPlayer : MonoBehaviour
         if (!tookDamage)
 
         {
-
+            noDamage = false;
             float moveX = Input.GetAxis("Horizontal");
 
             float moveY = Input.GetAxis("Vertical");
@@ -136,31 +133,30 @@ public class KiyotoPlayer : MonoBehaviour
 
         // 敵との衝突まとめ処理
 
-        if (enemiesHitThisFrame.Count > 0)
+        
+
+            
+
+        
+
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+
+    {
+
+        if (collision.gameObject.CompareTag("Enemy"))
 
         {
-
-            int damage = enemiesHitThisFrame.Count;
-
-            enemiesHitThisFrame.Clear();
-
-            if (!isBarrier && !isGreen)
+            if (!isBarrier && !isGreen && !noDamage)
 
             {
-
-                life -= damage;
+                noDamage = true;
+                life--;
 
                 if (life < 0) life = 0;
 
-                // 風船を割るアニメーション
 
-                if (balloonLife != null)
-
-                {
-
-                    balloonLife.TakeDamage(damage);
-
-                }
 
                 if (life <= 0)
 
@@ -180,25 +176,11 @@ public class KiyotoPlayer : MonoBehaviour
 
             }
 
-        }
 
-    }
 
-    void OnCollisionEnter2D(Collision2D collision)
 
-    {
 
-        if (collision.gameObject.CompareTag("Enemy"))
-
-        {
-
-            if (!enemiesHitThisFrame.Contains(collision.gameObject))
-
-            {
-
-                enemiesHitThisFrame.Add(collision.gameObject);
-
-                if (!tookDamage && !isBarrier && !isGreen)
+            if (!tookDamage)
 
                 {
 
@@ -208,7 +190,7 @@ public class KiyotoPlayer : MonoBehaviour
 
                 }
 
-            }
+            
 
         }
 
@@ -231,7 +213,6 @@ public class KiyotoPlayer : MonoBehaviour
             {
 
                 life++;
-                balloonLife.Heal(1);
             }
 
             Destroy(collision.gameObject);
