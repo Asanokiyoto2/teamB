@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 7410b20c1fc3bb14fbe80598080b417d
+guid: 97e8e315b4715b741bd63b504991a639
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6169550158933999176
-    second: "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_2_0"
+      213: -5792763939834551005
+    second: "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_\u767D_2_0"
   - first:
-      213: -6730782964792109548
-    second: "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_2_1"
+      213: 2085270799470360120
+    second: "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_\u767D_2_1"
   - first:
-      213: -709536098912312230
-    second: "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_2_2"
+      213: 3889759091919512820
+    second: "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_\u767D_2_2"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,37 +102,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_2_0"
+      name: "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_\u767D_2_0"
       rect:
         serializedVersion: 2
         x: 432
@@ -147,14 +121,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8b1c8c071da516aa0800000000000000
-      internalID: -6169550158933999176
+      spriteID: 325287a53e7fb9fa0800000000000000
+      internalID: -5792763939834551005
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_2_1"
+      name: "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_\u767D_2_1"
       rect:
         serializedVersion: 2
         x: 460
@@ -169,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 416d0530e847792a0800000000000000
-      internalID: -6730782964792109548
+      spriteID: 836fcee6ebe50fc10800000000000000
+      internalID: 2085270799470360120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_2_2"
+      name: "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_\u767D_2_2"
       rect:
         serializedVersion: 2
         x: 512
@@ -191,8 +165,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a54e3056da83726f0800000000000000
-      internalID: -709536098912312230
+      spriteID: 4f465b709433bf530800000000000000
+      internalID: 3889759091919512820
       vertices: []
       indices: 
       edges: []
@@ -211,9 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_2_0": -6169550158933999176
-      "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_2_1": -6730782964792109548
-      "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_2_2": -709536098912312230
+      "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_\u767D_2_0": -5792763939834551005
+      "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_\u767D_2_1": 2085270799470360120
+      "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_\u767D_2_2": 3889759091919512820
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

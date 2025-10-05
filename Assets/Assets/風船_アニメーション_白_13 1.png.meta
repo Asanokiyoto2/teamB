@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 3c1f86473c728da468952bf0ea3b360d
+guid: 75014f428f44eac4d993feae8ef29bd6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4772173098236071037
-    second: "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_4_0"
-  - first:
-      213: -2755748432575302645
-    second: "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_4_1"
-  - first:
-      213: -4937379516881645572
-    second: "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_4_2"
+      213: 5104991005435237394
+    second: "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_\u767D_13_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,65 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_4_0"
-      rect:
-        serializedVersion: 2
-        x: 235
-        y: 1031
-        width: 23
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d7c4907162a2a3240800000000000000
-      internalID: 4772173098236071037
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_4_1"
+      name: "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_\u767D_13_0"
       rect:
         serializedVersion: 2
         x: 512
-        y: 275
-        width: 597
-        height: 919
+        y: 185
+        width: 328
+        height: 415
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b047202b66d91c9d0800000000000000
-      internalID: -2755748432575302645
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_4_2"
-      rect:
-        serializedVersion: 2
-        x: 338
-        y: 696
-        width: 28
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cffcafe1d77ea7bb0800000000000000
-      internalID: -4937379516881645572
+      spriteID: 2141884a54298d640800000000000000
+      internalID: 5104991005435237394
       vertices: []
       indices: 
       edges: []
@@ -211,9 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_4_0": 4772173098236071037
-      "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_4_1": -2755748432575302645
-      "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_4_2": -4937379516881645572
+      "\u98A8\u8239_\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3_\u767D_13_0": 5104991005435237394
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
