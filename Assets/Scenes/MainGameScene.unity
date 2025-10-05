@@ -3591,11 +3591,11 @@ GameObject:
   - component: {fileID: 1560790705}
   - component: {fileID: 1560790704}
   - component: {fileID: 1560790703}
-  - component: {fileID: 1560790702}
   - component: {fileID: 1560790701}
   - component: {fileID: 1560790700}
   - component: {fileID: 1560790699}
   - component: {fileID: 1560790708}
+  - component: {fileID: 1560790709}
   m_Layer: 0
   m_Name: 'Player '
   m_TagString: Player
@@ -3711,38 +3711,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 2.4, y: 1.8}
   m_Radius: 1.3
---- !u!114 &1560790702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560790698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7a036a6c051654591a3a0b242b1e8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 1560790706}
-  balloonSprites:
-  - {fileID: 21300000, guid: ba250480e380dfc428e5855619bf677c, type: 3}
-  - {fileID: 21300000, guid: 7bb2061726b282e40b932c2ab3b4353d, type: 3}
-  - {fileID: 21300000, guid: 9260c026462afd84d94dc3f73c264feb, type: 3}
-  - {fileID: 21300000, guid: 838bd43f4272856459d94d738a86d1dd, type: 3}
-  breakAnimationSprites:
-  - {fileID: 21300000, guid: 97e8e315b4715b741bd63b504991a639, type: 3}
-  - {fileID: 21300000, guid: 7be37c6aead312a4593d742f6e0a0381, type: 3}
-  - {fileID: 21300000, guid: 5e41a85303fd6474e890d911cb685de6, type: 3}
-  - {fileID: 21300000, guid: eee8697b7e789fc43998ff562e9296c0, type: 3}
-  - {fileID: 21300000, guid: 43fa286cab7ecf64a904e0b48101d6c1, type: 3}
-  - {fileID: 21300000, guid: f7549ad79c05fa64ab040b87b7dd63ee, type: 3}
-  - {fileID: 21300000, guid: 0158d130aff46074c80e3413cb2b1efd, type: 3}
-  - {fileID: 21300000, guid: 3afe08d88fd11df4c9c35accd730a5ea, type: 3}
-  - {fileID: 21300000, guid: b27b6353d55a8524795957c19f0511b8, type: 3}
-  - {fileID: 21300000, guid: ba250480e380dfc428e5855619bf677c, type: 3}
-  breakCount: 09000000060000000300000003000000
-  breakFrameTime: 0.2
-  life: 3
 --- !u!114 &1560790703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3885,8 +3853,28 @@ MonoBehaviour:
   knockbackForce: 5
   knockbackDuration: 0.2
   isGreen: 0
-  balloonSprites: []
-  balloonRenderer: {fileID: 0}
+--- !u!95 &1560790709
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560790698}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3048f58b2f705364e82e8f3ca167acbe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1592490272
 PrefabInstance:
   m_ObjectHideFlags: 0

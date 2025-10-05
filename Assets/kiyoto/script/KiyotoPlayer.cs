@@ -226,12 +226,13 @@ public class KiyotoPlayer : MonoBehaviour
                 {
                     anim.SetBool("Heal", true);
                     anim.SetBool("damage", false);
-
+                    Debug.Log("Heal");
                 }
                 else if(life == 2)
                 {
                     anim.SetBool("Heal2", true);
                     anim.SetBool("damage2", false);
+                    Debug.Log("Heal2");
                 }
                 
             }

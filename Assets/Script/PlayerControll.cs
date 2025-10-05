@@ -11,6 +11,9 @@ using UnityEngine.SceneManagement;
 public class PlayerControll : MonoBehaviour
 
 {
+    [Header("アニメーション")]
+
+    private Animator anim = null;
 
     [Header("UI")]
 
@@ -54,20 +57,11 @@ public class PlayerControll : MonoBehaviour
 
     private float greenTime = 0;
 
-    [SerializeField] private Sprite[] balloonSprites;
-
-    [SerializeField] private SpriteRenderer balloonRenderer;
-
-    private BalloonLife balloonLife;
-
-    // ★ 今フレームで当たった敵を一度だけ記録する
-
-    private HashSet<GameObject> enemiesHitThisFrame = new HashSet<GameObject>();
+    private bool noDamage = false;
 
     void Start()
 
     {
-
         rb = GetComponent<Rigidbody2D>();
 
         life = Maxlife;
@@ -82,15 +76,8 @@ public class PlayerControll : MonoBehaviour
 
         startDistance = Vector2.Distance(pointOnPlayer, pointOnGoal);
 
-        if (balloonRenderer != null && balloonSprites.Length > 0)
+        anim = GetComponent<Animator>();
 
-        {
-
-            balloonRenderer.sprite = balloonSprites[0];
-
-        }
-
-        balloonLife = GetComponent<BalloonLife>();
 
     }
 
@@ -101,6 +88,7 @@ public class PlayerControll : MonoBehaviour
         if (!tookDamage)
 
         {
+            noDamage = false;
 
             float moveX = Input.GetAxis("Horizontal");
 
@@ -139,36 +127,49 @@ public class PlayerControll : MonoBehaviour
             isGreen = false;
 
         }
+    }
+    void OnCollisionEnter2D(Collision2D collision)
 
-        // === ★ フレーム最後にまとめて処理 ===
+    {
 
-        if (enemiesHitThisFrame.Count > 0)
+        if (collision.gameObject.CompareTag("Enemy"))
 
         {
 
-            int damage = enemiesHitThisFrame.Count;
-
-            enemiesHitThisFrame.Clear();
-
-            if (!isBarrier && !isGreen)
+            if (!isBarrier && !isGreen && !noDamage)
 
             {
 
-                life -= damage;
+                noDamage = true;
 
-                if (life < 0) life = 0;
+                life--;
 
-                balloonLife.TakeDamage(damage);
-
-                UpdateBalloonSprite();
-
-                Debug.Log("ライフ残り: " + life);
-
-                if (life <= 0)
+                if (life == 2)
 
                 {
 
-                    Die();
+                    anim.SetBool("damage", true);
+                    anim.SetBool("Heal", false);
+
+
+                }
+
+                else if (life == 1)
+
+                {
+
+                    anim.SetBool("damage2", true);
+                    anim.SetBool("Hea2", false);
+
+                }
+
+                else if (life <= 0)
+
+                {
+
+                    anim.SetBool("damage3", true);
+
+                    StartCoroutine(PlayDeathAnimationAndGameOver());
 
                 }
 
@@ -182,37 +183,13 @@ public class PlayerControll : MonoBehaviour
 
             }
 
-        }
-
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-
-    {
-
-        if (collision.gameObject.CompareTag("Enemy"))
-
-        {
-
-            // ★ 同じ敵を1フレーム内で複数回カウントしない
-
-            if (!enemiesHitThisFrame.Contains(collision.gameObject))
+            if (!tookDamage)
 
             {
 
-                enemiesHitThisFrame.Add(collision.gameObject);
+                Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
 
-                // ノックバックは最初に当たった敵から発生
-
-                if (!tookDamage && !isBarrier && !isGreen)
-
-                {
-
-                    Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
-
-                    StartCoroutine(ApplyKnockback(knockbackDirection));
-
-                }
+                StartCoroutine(ApplyKnockback(knockbackDirection));
 
             }
 
@@ -237,8 +214,18 @@ public class PlayerControll : MonoBehaviour
             {
 
                 life++;
-
-                UpdateBalloonSprite();
+                if (life == Maxlife)
+                {
+                    anim.SetBool("Heal", true);
+                    anim.SetBool("damage", false);
+                    Debug.Log("Heal");
+                }
+                else if (life == 2)
+                {
+                    anim.SetBool("Heal2", true);
+                    anim.SetBool("damage2", false);
+                    Debug.Log("Heal2");
+                }
 
             }
 
@@ -287,7 +274,6 @@ public class PlayerControll : MonoBehaviour
         }
 
     }
-
     private IEnumerator ApplyKnockback(Vector2 direction)
 
     {
@@ -306,30 +292,25 @@ public class PlayerControll : MonoBehaviour
 
     }
 
-    private void Die()
+    //  ライフが0になったときにアニメーションを再生してからゲームオーバーへ
+
+    private IEnumerator PlayDeathAnimationAndGameOver()
 
     {
+
+        rb.linearVelocity = Vector2.zero;  // 動きを止める
+
+        tookDamage = true; // 入力を無効化
+
+        // Animator の "damage3" アニメーションが終わるまで待つ
+
+        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+
+        yield return new WaitForSeconds(stateInfo.length + 0.2f); // 再生時間
 
         SceneManager.LoadScene("Game over");
 
     }
-
-    private void UpdateBalloonSprite()
-
-    {
-
-        if (balloonRenderer != null && balloonSprites.Length > 0)
-
-        {
-
-            int index = Mathf.Clamp(Maxlife - life, 0, balloonSprites.Length - 1);
-
-            balloonRenderer.sprite = balloonSprites[index];
-
-        }
-
-    }
-
 }
 
 
