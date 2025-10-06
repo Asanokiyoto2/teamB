@@ -159,7 +159,7 @@ public class PlayerControll : MonoBehaviour
                 {
 
                     anim.SetBool("damage2", true);
-                    anim.SetBool("Hea2", false);
+                    anim.SetBool("Heal2", false);
 
                 }
 
