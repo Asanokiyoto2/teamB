@@ -4,6 +4,7 @@ public class ColorSwitcher : MonoBehaviour
     [Header("背景とプレイヤー")]
     public SpriteRenderer backgroundRenderer;  // 背景のSpriteRenderer
     public SpriteRenderer playerRenderer;      // プレイヤーのSpriteRenderer
+    
     [Header("色設定")]
     public Color blackColor = Color.black;
     public Color whiteColor = Color.white;
