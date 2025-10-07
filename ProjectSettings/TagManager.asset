@@ -11,6 +11,9 @@ TagManager:
   - Barrier
   - Render
   - Green
+  - Circle
+  - Star
+  - Hart
   layers:
   - Default
   - TransparentFX

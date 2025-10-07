@@ -61,6 +61,9 @@ public class KiyotoPlayer : MonoBehaviour
     private float greenTime = 0;
 
     private bool noDamage = false;
+    private GameObject Circle;
+    private GameObject Star;
+    private GameObject Hart;
 
     void Start()
 
@@ -81,6 +84,9 @@ public class KiyotoPlayer : MonoBehaviour
         startDistance = Vector2.Distance(pointOnPlayer, pointOnGoal);
 
         anim = GetComponent<Animator>();
+        Circle = GameObject.Find("Circle");
+        Star = GameObject.Find("Star");
+        Hart = GameObject.Find("Hart");
 
     }
 
@@ -155,10 +161,10 @@ public class KiyotoPlayer : MonoBehaviour
                 if (life == 2)
 
                 {
-
+                    
                     anim.SetBool("damage", true);
                     anim.SetBool("Heal", false);
-
+                    Circle.SetActive(false);
 
                 }
 
@@ -168,7 +174,7 @@ public class KiyotoPlayer : MonoBehaviour
 
                     anim.SetBool("damage2", true);
                     anim.SetBool("Heal2", false);
-
+                    Hart.SetActive(false);
                 }
 
                 else if (life <= 0)
@@ -226,6 +232,7 @@ public class KiyotoPlayer : MonoBehaviour
                 {
                     anim.SetBool("Heal", true);
                     anim.SetBool("damage", false);
+                    Circle.SetActive(true);
                     Debug.Log("Heal");
                 }
                 else if(life == 2)
@@ -233,6 +240,7 @@ public class KiyotoPlayer : MonoBehaviour
                     anim.SetBool("Heal2", true);
                     anim.SetBool("damage2", false);
                     Debug.Log("Heal2");
+                    Hart.SetActive(true);
                 }
                 
             }
