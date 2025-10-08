@@ -11,7 +11,6 @@ using UnityEngine.UI;
 public class PlayerControll : MonoBehaviour
 
 {
-
     [Header("アニメーション")]
 
     private Animator anim = null;
@@ -73,11 +72,8 @@ public class PlayerControll : MonoBehaviour
     public float blinkDuration = 0.1f;
 
     public int blinkCount = 5;
-
     void Start()
-
     {
-
         rb = GetComponent<Rigidbody2D>();
 
         life = Maxlife;
@@ -101,9 +97,7 @@ public class PlayerControll : MonoBehaviour
         Star = GameObject.Find("Star");
 
         Hart = GameObject.Find("Hart");
-
     }
-
     void Update()
 
     {
@@ -122,26 +116,19 @@ public class PlayerControll : MonoBehaviour
 
         }
 
-        // ゴールまでの距離表示
-
         Vector2 pointOnGoal = goalCol.ClosestPoint(transform.position);
-
         Vector2 pointOnPlayer = playerCol.ClosestPoint(goal.position);
-
         float currentDistance = Vector2.Distance(pointOnPlayer, pointOnGoal);
-
-        float progress = (1f - (currentDistance / startDistance)) * 50f;
-
-        int distanceSteps = Mathf.Clamp(Mathf.FloorToInt(progress), 0, 50);
-
-        if (currentDistance < 0.1f) distanceSteps = 50;
-
-        if (goalDistanceText != null)
-
+        // 誤差を吸収する（0.1m以内なら到達扱い）
+        if (currentDistance < 0.1f)
         {
-
+            currentDistance = 0f;
+        }
+        float progress = (1f - (currentDistance / startDistance)) * 50f;
+        int distanceSteps = Mathf.Clamp(Mathf.RoundToInt(progress), 0, 50);
+        if (goalDistanceText != null)
+        {
             goalDistanceText.text = $"ゴールまであと: {50 - distanceSteps} / 50";
-
         }
 
         // 緑効果の時間制限
@@ -165,35 +152,26 @@ public class PlayerControll : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
 
         {
-
             if (!isBarrier && !isGreen && !noDamage)
 
             {
-
                 noDamage = true;
-
                 life--;
-
                 if (life == 2)
-
                 {
-
                     anim.SetBool("damage", true);
 
                     anim.SetBool("Heal", false);
 
                     Circle.SetActive(false);
-
                 }
 
                 else if (life == 1)
-
                 {
                     anim.SetBool("damage2", true);
 
                     anim.SetBool("Heal2", false);
                 }
-
                 else if (life <= 0)
                 {
                     anim.SetBool("damage3", true);
@@ -262,8 +240,7 @@ public class PlayerControll : MonoBehaviour
                 {
                     anim.SetBool("Heal2", true);
                     anim.SetBool("damage2", false);
-                    Hart.SetActive(true);
-                   
+                    Hart.SetActive(true);                 
                 }
             }
             Destroy(collision.gameObject);
@@ -407,353 +384,4 @@ public class PlayerControll : MonoBehaviour
 
 }
 
-/*using System.Collections;
-
-using System.Collections.Generic;
-
-using UnityEngine;
-
-using TMPro;
-
-using UnityEngine.SceneManagement;
-
-public class PlayerControll : MonoBehaviour
-
-{
-    [Header("アニメーション")]
-
-    private Animator anim = null;
-
-    [Header("UI")]
-
-    public TextMeshProUGUI goalDistanceText;
-
-    public ColorSwitcher colorSwitcher;
-
-    [Header("ゴール設定")]
-
-    public Transform goal;
-
-    private float startDistance;
-
-    [Header("ライフ設定")]
-
-    public int Maxlife = 3;
-
-    public int life;
-
-    [Header("移動設定")]
-
-    public float moveSpeed = 5f;
-
-    [Header("ノックバック設定")]
-
-    public float knockbackForce = 5f;
-
-    public float knockbackDuration = 0.2f;
-
-    private Rigidbody2D rb;
-
-    private bool tookDamage = false;
-
-    private Collider2D playerCol;
-
-    private Collider2D goalCol;
-
-    private bool isBarrier = false;
-
-    public bool isGreen = false;
-
-    private float greenTime = 0;
-
-    private bool noDamage = false;
-
-    private GameObject Circle;
-    private GameObject Star;
-    private GameObject Hart;
-    private GameObject CircleUI;
-    private GameObject StarUI;
-    private GameObject HartUI;
-
-    void Start()
-
-    {
-        rb = GetComponent<Rigidbody2D>();
-
-        life = Maxlife;
-
-        playerCol = GetComponent<Collider2D>();
-
-        goalCol = goal.GetComponent<Collider2D>();
-
-        Vector2 pointOnGoal = goalCol.ClosestPoint(transform.position);
-
-        Vector2 pointOnPlayer = playerCol.ClosestPoint(goal.position);
-
-        startDistance = Vector2.Distance(pointOnPlayer, pointOnGoal);
-
-        anim = GetComponent<Animator>();
-
-        Circle = GameObject.Find("Circle");
-        Star = GameObject.Find("Star");
-        Hart = GameObject.Find("Hart");
-        CircleUI = GameObject.Find("UI Circle");
-        StarUI = GameObject.Find("UI Star");
-        HartUI = GameObject.Find("UI Hart");
-
-
-    }
-
-    void Update()
-
-    {
-
-        if (!tookDamage)
-
-        {
-            noDamage = false;
-
-            float moveX = Input.GetAxis("Horizontal");
-
-            float moveY = Input.GetAxis("Vertical");
-
-            rb.linearVelocity = new Vector2(moveX * moveSpeed, moveY * moveSpeed);
-
-        }
-
-        // ゴールまでの距離表示
-
-        Vector2 pointOnGoal = goalCol.ClosestPoint(transform.position);
-
-        Vector2 pointOnPlayer = playerCol.ClosestPoint(goal.position);
-
-        float currentDistance = Vector2.Distance(pointOnPlayer, pointOnGoal);
-
-        float progress = (1f - (currentDistance / startDistance)) * 50f;
-
-        int distanceSteps = Mathf.Clamp(Mathf.FloorToInt(progress), 0, 50);
-
-        if (currentDistance < 0.1f) distanceSteps = 50;
-
-        if (goalDistanceText != null)
-
-        {
-
-            goalDistanceText.text = $"ゴールまであと: {50 - distanceSteps} / 50";
-
-        }
-
-        if (isGreen && Time.time - greenTime > 2.0f)
-
-        {
-
-            isGreen = false;
-
-        }
-    }
-    void OnCollisionEnter2D(Collision2D collision)
-
-    {
-
-        if (collision.gameObject.CompareTag("Enemy"))
-
-        {
-
-            if (!isBarrier && !isGreen && !noDamage)
-
-            {
-
-                noDamage = true;
-
-                life--;
-
-                if (life == 2)
-
-                {
-                    float time = Time.time;
-                    anim.SetBool("damage", true);
-                    anim.SetBool("Heal", false);
-                    Circle.SetActive(false);
-                    if(time < 1.0f)
-                    {
-                        CircleUI.SetActive(true);
-                        CircleUI.SetActive(false);
-                    }
-                    time = 0f;
-                }
-
-                else if (life == 1)
-
-                {
-                    float time = Time.time;
-                    anim.SetBool("damage2", true);
-                    anim.SetBool("Heal2", false);
-                    Hart.SetActive(false);
-                    if (time < 1.0f)
-                    {
-                        HartUI.SetActive(true);
-                        HartUI.SetActive(false);
-                    }
-                    time = 0f;
-                }
-
-                else if (life <= 0)
-
-                {
-
-                    anim.SetBool("damage3", true);
-                    float time = Time.time;
-                    if (time < 1.0f)
-                    {
-                        StarUI.SetActive(true);
-                        StarUI.SetActive(false);
-                    }
-                    time = 0f;
-
-                    StartCoroutine(PlayDeathAnimationAndGameOver());
-
-                }
-
-            }
-
-            else
-
-            {
-
-                isBarrier = false;
-
-            }
-
-            if (!tookDamage)
-
-            {
-
-                Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
-
-                StartCoroutine(ApplyKnockback(knockbackDirection));
-
-            }
-
-        }
-
-        if (collision.gameObject.CompareTag("Barrier"))
-
-        {
-
-            isBarrier = true;
-
-            Destroy(collision.gameObject);
-
-        }
-
-        if (collision.gameObject.CompareTag("Item"))
-
-        {
-
-            if (life < Maxlife)
-
-            {
-
-                life++;
-                if (life == Maxlife)
-                {
-                    anim.SetBool("Heal", true);
-                    anim.SetBool("damage", false);
-                    Circle.SetActive(true);
-                    Debug.Log("Heal");
-                }
-                else if (life == 2)
-                {
-                    anim.SetBool("Heal2", true);
-                    anim.SetBool("damage2", false);
-                    Debug.Log("Heal2");
-                    Hart.SetActive(true);
-                }
-
-            }
-
-            Destroy(collision.gameObject);
-
-        }
-
-        if (collision.gameObject.CompareTag("Goal"))
-
-        {
-
-            SceneManager.LoadScene("gameclear");
-
-        }
-
-        if (colorSwitcher.isWhiteBackground && collision.gameObject.CompareTag("Render"))
-
-        {
-
-            colorSwitcher.playerRenderer.color = colorSwitcher.blackColor;
-
-            Destroy(collision.gameObject);
-
-        }
-
-        else if (!colorSwitcher.isWhiteBackground && collision.gameObject.CompareTag("Render"))
-
-        {
-
-            colorSwitcher.playerRenderer.color = colorSwitcher.whiteColor;
-
-            Destroy(collision.gameObject);
-
-        }
-
-        if (collision.gameObject.CompareTag("Green"))
-
-        {
-
-            isGreen = true;
-
-            greenTime = Time.time;
-
-            Destroy(collision.gameObject);
-
-        }
-
-    }
-    private IEnumerator ApplyKnockback(Vector2 direction)
-
-    {
-
-        tookDamage = true;
-
-        rb.linearVelocity = Vector2.zero;
-
-        rb.AddForce(direction * knockbackForce, ForceMode2D.Impulse);
-
-        yield return new WaitForSeconds(knockbackDuration);
-
-        rb.linearVelocity = Vector2.zero;
-
-        tookDamage = false;
-
-    }
-
-    //  ライフが0になったときにアニメーションを再生してからゲームオーバーへ
-
-    private IEnumerator PlayDeathAnimationAndGameOver()
-
-    {
-
-        rb.linearVelocity = Vector2.zero;  // 動きを止める
-
-        tookDamage = true; // 入力を無効化
-
-        // Animator の "damage3" アニメーションが終わるまで待つ
-
-        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-
-        yield return new WaitForSeconds(stateInfo.length + 0.2f); // 再生時間
-
-        SceneManager.LoadScene("Game over");
-
-    }
-}
-*/
 

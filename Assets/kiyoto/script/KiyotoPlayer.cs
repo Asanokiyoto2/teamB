@@ -9,6 +9,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 using Unity.VisualScripting;
+using UnityEditor;
 
 public class KiyotoPlayer : MonoBehaviour
 
@@ -108,27 +109,27 @@ public class KiyotoPlayer : MonoBehaviour
 
         }
 
-        // ゴールまでの距離表示
-
-        Vector2 pointOnGoal = goalCol.ClosestPoint(transform.position);
-
-        Vector2 pointOnPlayer = playerCol.ClosestPoint(goal.position);
-
-        float currentDistance = Vector2.Distance(pointOnPlayer, pointOnGoal);
-
-        float progress = (1f - (currentDistance / startDistance)) * 50f;
-
-        int distanceSteps = Mathf.Clamp(Mathf.FloorToInt(progress), 0, 50);
-
-        if (currentDistance < 0.1f) distanceSteps = 50;
-
-        if (goalDistanceText != null)
-
+        // === ゴールまでの距離計算（中心同士） ===
+        float currentDistance = Vector2.Distance(transform.position, goal.position);
+        // --- 到達時は0固定 ---
+        if (currentDistance < 0.3f)
         {
-
-            goalDistanceText.text = $"ゴールまであと: {50 - distanceSteps} / 50";
-
+            currentDistance = 0f;
         }
+        float progress = (1f - (currentDistance / startDistance)) * 50f;
+        int distanceSteps = Mathf.Clamp(Mathf.RoundToInt(progress), 0, 50);
+        if (goalDistanceText != null)
+        {
+            if (currentDistance <= 0f)
+            {
+                goalDistanceText.text = "ゴールまであと: 0 / 50";
+            }
+            else
+            {
+                goalDistanceText.text = $"ゴールまであと: {50 - distanceSteps} / 50";
+            }
+        }
+
 
         // 緑無敵の制限時間チェック
 
@@ -252,8 +253,7 @@ public class KiyotoPlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("Goal"))
 
         {
-
-            SceneManager.LoadScene("gameclear");
+            StartCoroutine(PlayDeathAnimationAndGameClear());
 
         }
 
@@ -326,6 +326,19 @@ public class KiyotoPlayer : MonoBehaviour
         yield return new WaitForSeconds(stateInfo.length + 1f); // 再生時間
 
         SceneManager.LoadScene("Game over");
+
+    }
+    private IEnumerator PlayDeathAnimationAndGameClear ()
+
+    {
+
+        rb.linearVelocity = Vector2.zero;  // 動きを止める
+
+        tookDamage = true; // 入力を無効化
+
+        yield return new WaitForSeconds(1f); // 再生時間
+
+        SceneManager.LoadScene("gameclear");
 
     }
 
