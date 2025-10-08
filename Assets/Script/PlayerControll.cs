@@ -62,6 +62,9 @@ public class PlayerControll : MonoBehaviour
     private GameObject Circle;
     private GameObject Star;
     private GameObject Hart;
+    public GameObject CircleUI;
+    public GameObject StarUI;
+    public GameObject HartUI;
 
     void Start()
 
@@ -85,6 +88,9 @@ public class PlayerControll : MonoBehaviour
         Circle = GameObject.Find("Circle");
         Star = GameObject.Find("Star");
         Hart = GameObject.Find("Hart");
+        /*CircleUI = GameObject.Find("UI Circle");
+        StarUI = GameObject.Find("UI Star");
+        HartUI = GameObject.Find("UI Hart");*/
 
 
     }
@@ -155,20 +161,31 @@ public class PlayerControll : MonoBehaviour
                 if (life == 2)
 
                 {
-
+                    float time = Time.time;
                     anim.SetBool("damage", true);
                     anim.SetBool("Heal", false);
                     Circle.SetActive(false);
-
+                    if(time < 1.0f)
+                    {
+                        CircleUI.SetActive(true);
+                        CircleUI.SetActive(false);
+                    }
+                    time = 0f;
                 }
 
                 else if (life == 1)
 
                 {
-
+                    float time = Time.time;
                     anim.SetBool("damage2", true);
                     anim.SetBool("Heal2", false);
                     Hart.SetActive(false);
+                    if (time < 1.0f)
+                    {
+                        HartUI.SetActive(true);
+                        HartUI.SetActive(false);
+                    }
+                    time = 0f;
                 }
 
                 else if (life <= 0)
@@ -176,6 +193,13 @@ public class PlayerControll : MonoBehaviour
                 {
 
                     anim.SetBool("damage3", true);
+                    float time = Time.time;
+                    if (time < 1.0f)
+                    {
+                        StarUI.SetActive(true);
+                        StarUI.SetActive(false);
+                    }
+                    time = 0f;
 
                     StartCoroutine(PlayDeathAnimationAndGameOver());
 

@@ -3103,6 +3103,9 @@ MonoBehaviour:
   knockbackForce: 5
   knockbackDuration: 0.2
   isGreen: 0
+  CircleUI: {fileID: 1130324338}
+  StarUI: {fileID: 2121300098}
+  HartUI: {fileID: 847897347}
 --- !u!1 &596117645
 GameObject:
   m_ObjectHideFlags: 0
@@ -4524,6 +4527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 592759474}
+  anim: {fileID: 0}
 --- !u!4 &857088379 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7207386930225179232, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
@@ -6292,6 +6296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 592759474}
+  anim: {fileID: 0}
 --- !u!1001 &1157112492
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11630,6 +11635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 592759474}
+  anim: {fileID: 0}
 --- !u!1001 &2121311848
 PrefabInstance:
   m_ObjectHideFlags: 0
