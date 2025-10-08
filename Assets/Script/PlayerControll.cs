@@ -116,19 +116,24 @@ public class PlayerControll : MonoBehaviour
 
         }
 
+        // === ゴールまでの距離計算（コライダー表面同士） ===
         Vector2 pointOnGoal = goalCol.ClosestPoint(transform.position);
         Vector2 pointOnPlayer = playerCol.ClosestPoint(goal.position);
         float currentDistance = Vector2.Distance(pointOnPlayer, pointOnGoal);
-        // 誤差を吸収する（0.1m以内なら到達扱い）
-        if (currentDistance < 0.1f)
+        // === 誤差補正 ===
+        // 接触しても数cm（物理誤差）残るため、一定以下なら0扱いにする
+        float epsilon = 0.1f; // ← ここを0.1fなどに調整して自然に
+        if (currentDistance <= epsilon)
         {
             currentDistance = 0f;
         }
+        // === 距離を0〜50段階に変換 ===
         float progress = (1f - (currentDistance / startDistance)) * 50f;
         int distanceSteps = Mathf.Clamp(Mathf.RoundToInt(progress), 0, 50);
+        // === UI更新 ===
         if (goalDistanceText != null)
         {
-            goalDistanceText.text = $"ゴールまであと: {50 - distanceSteps} / 50";
+            goalDistanceText.text = $"ゴールまであと\n {50 - distanceSteps}";
         }
 
         // 緑効果の時間制限
@@ -318,70 +323,7 @@ public class PlayerControll : MonoBehaviour
 
     }
 
-    // ===== UI点滅処理（確実に消す） =====
-
-    private IEnumerator BlinkUI(Image target)
-
-    {
-
-        if (target == null)
-
-        {
-
-            Debug.LogWarning("BlinkUI: 対象UIが見つかりません。");
-
-            yield break;
-
-        }
-
-        GameObject uiObj = target.gameObject;
-
-        for (int i = 0; i < blinkCount; i++)
-
-        {
-
-            target.enabled = !target.enabled;
-
-            yield return new WaitForSeconds(blinkDuration);
-
-        }
-
-        // 最終的に完全に消す
-
-        target.enabled = false;
-
-        uiObj.SetActive(false);
-
-    }
-
-    // ===== 回復時のUI復活 =====
-
-    private IEnumerator ShowUI(Image target)
-
-    {
-
-        if (target == null) yield break;
-
-        GameObject uiObj = target.gameObject;
-
-        uiObj.SetActive(true);
-
-        target.enabled = true;
-
-        for (int i = 0; i < blinkCount; i++)
-
-        {
-
-            target.enabled = !target.enabled;
-
-            yield return new WaitForSeconds(blinkDuration);
-
-        }
-
-        target.enabled = true; // 最後は点灯状態で終了
-
-    }
-
+    
 }
 
 

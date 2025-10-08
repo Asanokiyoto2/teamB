@@ -9,7 +9,7 @@ public class TitleMenu : MonoBehaviour
     {
         // ƒQ[ƒ€ƒV[ƒ“‚Ö‘JˆÚ
         SceneManager.LoadScene("MainGameScene");
-        SceneManager.LoadScene("setumeiScene");
+        //SceneManager.LoadScene("setumeiScene");
     }
     public void OnTitleButton()
     {

@@ -1,20 +1,16 @@
 using System.Collections;
 
-using System.Collections.Generic;
-
 using UnityEngine;
 
 using TMPro;
 
 using UnityEngine.SceneManagement;
 
-using Unity.VisualScripting;
-using UnityEditor;
+using UnityEngine.UI;
 
 public class KiyotoPlayer : MonoBehaviour
 
 {
-
     [Header("アニメーション")]
 
     private Animator anim = null;
@@ -62,14 +58,22 @@ public class KiyotoPlayer : MonoBehaviour
     private float greenTime = 0;
 
     private bool noDamage = false;
+
+    [Header("UI オブジェクト")]
+
     private GameObject Circle;
+
     private GameObject Star;
+
     private GameObject Hart;
 
+    [Header("UI 点滅設定")]
+
+    public float blinkDuration = 0.1f;
+
+    public int blinkCount = 5;
     void Start()
-
     {
-
         rb = GetComponent<Rigidbody2D>();
 
         life = Maxlife;
@@ -85,12 +89,15 @@ public class KiyotoPlayer : MonoBehaviour
         startDistance = Vector2.Distance(pointOnPlayer, pointOnGoal);
 
         anim = GetComponent<Animator>();
+
+        // ゲーム内オブジェクト検索
+
         Circle = GameObject.Find("Circle");
+
         Star = GameObject.Find("Star");
+
         Hart = GameObject.Find("Hart");
-
     }
-
     void Update()
 
     {
@@ -109,29 +116,27 @@ public class KiyotoPlayer : MonoBehaviour
 
         }
 
-        // === ゴールまでの距離計算（中心同士） ===
-        float currentDistance = Vector2.Distance(transform.position, goal.position);
-        // --- 到達時は0固定 ---
-        if (currentDistance < 0.3f)
+        // === ゴールまでの距離計算（コライダー表面同士） ===
+        Vector2 pointOnGoal = goalCol.ClosestPoint(transform.position);
+        Vector2 pointOnPlayer = playerCol.ClosestPoint(goal.position);
+        float currentDistance = Vector2.Distance(pointOnPlayer, pointOnGoal);
+        // === 誤差補正 ===
+        // 接触しても数cm（物理誤差）残るため、一定以下なら0扱いにする
+        float epsilon = 0.1f; // ← ここを0.1fなどに調整して自然に
+        if (currentDistance <= epsilon)
         {
             currentDistance = 0f;
         }
+        // === 距離を0〜50段階に変換 ===
         float progress = (1f - (currentDistance / startDistance)) * 50f;
         int distanceSteps = Mathf.Clamp(Mathf.RoundToInt(progress), 0, 50);
+        // === UI更新 ===
         if (goalDistanceText != null)
         {
-            if (currentDistance <= 0f)
-            {
-                goalDistanceText.text = "ゴールまであと: 0 / 50";
-            }
-            else
-            {
-                goalDistanceText.text = $"ゴールまであと: {50 - distanceSteps} / 50";
-            }
+            goalDistanceText.text = $"ゴールまであと\n {50 - distanceSteps}";
         }
 
-
-        // 緑無敵の制限時間チェック
+        // 緑効果の時間制限
 
         if (isGreen && Time.time - greenTime > 2.0f)
 
@@ -147,45 +152,35 @@ public class KiyotoPlayer : MonoBehaviour
 
     {
 
+        // === 敵との接触 ===
+
         if (collision.gameObject.CompareTag("Enemy"))
 
         {
-
             if (!isBarrier && !isGreen && !noDamage)
 
             {
-
                 noDamage = true;
-
                 life--;
-
                 if (life == 2)
-
                 {
-                    
                     anim.SetBool("damage", true);
-                    anim.SetBool("Heal", false);
-                    Circle.SetActive(false);
 
+                    anim.SetBool("Heal", false);
+
+                    Circle.SetActive(false);
                 }
 
                 else if (life == 1)
-
                 {
-
                     anim.SetBool("damage2", true);
+
                     anim.SetBool("Heal2", false);
-                    Hart.SetActive(false);
                 }
-
                 else if (life <= 0)
-
                 {
-
                     anim.SetBool("damage3", true);
-
                     StartCoroutine(PlayDeathAnimationAndGameOver());
-
                 }
 
             }
@@ -210,6 +205,8 @@ public class KiyotoPlayer : MonoBehaviour
 
         }
 
+        // === バリア ===
+
         if (collision.gameObject.CompareTag("Barrier"))
 
         {
@@ -220,6 +217,8 @@ public class KiyotoPlayer : MonoBehaviour
 
         }
 
+        // === 回復アイテム ===
+
         if (collision.gameObject.CompareTag("Item"))
 
         {
@@ -229,53 +228,52 @@ public class KiyotoPlayer : MonoBehaviour
             {
 
                 life++;
-                if (life == Maxlife)
+
+                if (life == 3)
+
                 {
+
                     anim.SetBool("Heal", true);
+
                     anim.SetBool("damage", false);
+
                     Circle.SetActive(true);
-                    Debug.Log("Heal");
+
                 }
-                else if(life == 2)
+
+                else if (life == 2)
                 {
                     anim.SetBool("Heal2", true);
                     anim.SetBool("damage2", false);
-                    Debug.Log("Heal2");
                     Hart.SetActive(true);
                 }
-                
             }
-
             Destroy(collision.gameObject);
-
         }
 
+        // === ゴール到達 ===
         if (collision.gameObject.CompareTag("Goal"))
 
         {
-            StartCoroutine(PlayDeathAnimationAndGameClear());
+
+            SceneManager.LoadScene("gameclear");
 
         }
 
+        // === カラー反転アイテム ===
         if (colorSwitcher.isWhiteBackground && collision.gameObject.CompareTag("Render"))
-
         {
-
             colorSwitcher.playerRenderer.color = colorSwitcher.blackColor;
-
             Destroy(collision.gameObject);
-
         }
 
         else if (!colorSwitcher.isWhiteBackground && collision.gameObject.CompareTag("Render"))
-
         {
-
             colorSwitcher.playerRenderer.color = colorSwitcher.whiteColor;
-
             Destroy(collision.gameObject);
-
         }
+
+        // === グリーンアイテム ===
 
         if (collision.gameObject.CompareTag("Green"))
 
@@ -309,37 +307,21 @@ public class KiyotoPlayer : MonoBehaviour
 
     }
 
-    //  ライフが0になったときにアニメーションを再生してからゲームオーバーへ
-
     private IEnumerator PlayDeathAnimationAndGameOver()
 
     {
 
-        rb.linearVelocity = Vector2.zero;  // 動きを止める
+        rb.linearVelocity = Vector2.zero;
 
-        tookDamage = true; // 入力を無効化
-
-        // Animator の "damage3" アニメーションが終わるまで待つ
+        tookDamage = true;
 
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
 
-        yield return new WaitForSeconds(stateInfo.length + 1f); // 再生時間
+        yield return new WaitForSeconds(stateInfo.length + 1.0f);
 
         SceneManager.LoadScene("Game over");
 
     }
-    private IEnumerator PlayDeathAnimationAndGameClear ()
 
-    {
-
-        rb.linearVelocity = Vector2.zero;  // 動きを止める
-
-        tookDamage = true; // 入力を無効化
-
-        yield return new WaitForSeconds(1f); // 再生時間
-
-        SceneManager.LoadScene("gameclear");
-
-    }
 
 }

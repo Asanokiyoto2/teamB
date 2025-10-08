@@ -2183,7 +2183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &370282417
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2248,7 +2248,7 @@ Transform:
   m_GameObject: {fileID: 370282416}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 15.81, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3791,7 +3791,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4230,8 +4230,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -416.11, y: -234.71}
-  m_SizeDelta: {x: 2.7463, y: 1.1443}
+  m_AnchoredPosition: {x: -314, y: 307}
+  m_SizeDelta: {x: 287.6447, y: 205.4752}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &819900069
 MonoBehaviour:
@@ -4253,17 +4253,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 50/50
+  m_text: m
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 915be254dd5d1b84fb74952a94cfdbdf, type: 2}
+  m_sharedMaterial: {fileID: 6819842852796866085, guid: 915be254dd5d1b84fb74952a94cfdbdf, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190335
-  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4280,8 +4280,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
-  m_fontSizeBase: 1
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4318,7 +4318,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 13.254791}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4428,8 +4428,8 @@ Transform:
   m_GameObject: {fileID: 847897347}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.139999, y: 6.159, z: 10}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalPosition: {x: -13.288, y: 6.696, z: 10}
+  m_LocalScale: {x: 0.13347709, y: 0.13883103, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 772831154}
@@ -6214,8 +6214,8 @@ Transform:
   m_GameObject: {fileID: 1130324338}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.24, y: 6.159, z: 10}
-  m_LocalScale: {x: 0.1, y: 0.11000001, z: 1}
+  m_LocalPosition: {x: -14.7564, y: 6.696, z: 10}
+  m_LocalScale: {x: 0.13347709, y: 0.15271413, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 772831154}
@@ -10537,8 +10537,8 @@ Transform:
   m_GameObject: {fileID: 1917403806}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.289, y: 6.21, z: 10}
-  m_LocalScale: {x: 3.3217542, y: 1.1215008, z: 1}
+  m_LocalPosition: {x: -14.8218, y: 6.7668004, z: 10}
+  m_LocalScale: {x: 4.433781, y: 1.5569912, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 442697382}
@@ -11565,8 +11565,8 @@ Transform:
   m_GameObject: {fileID: 2121300098}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.32, y: 6.159, z: 10}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalPosition: {x: -16.198, y: 6.696, z: 10}
+  m_LocalScale: {x: 0.13347709, y: 0.13883103, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 772831154}
