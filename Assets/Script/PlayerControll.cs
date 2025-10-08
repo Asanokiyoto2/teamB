@@ -53,10 +53,6 @@ public class PlayerControll : MonoBehaviour
 
     private bool isBarrier = false;
 
-    public bool isGreen = false;
-
-    private float greenTime = 0;
-
     private bool noDamage = false;
 
     [Header("UI オブジェクト")]
@@ -72,6 +68,11 @@ public class PlayerControll : MonoBehaviour
     public float blinkDuration = 0.1f;
 
     public int blinkCount = 5;
+
+    [Header("Render")]
+    public bool isGreen = false;
+
+    private float greenTime = 0;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

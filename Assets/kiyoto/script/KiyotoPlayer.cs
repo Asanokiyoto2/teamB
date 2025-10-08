@@ -53,10 +53,6 @@ public class KiyotoPlayer : MonoBehaviour
 
     private bool isBarrier = false;
 
-    public bool isGreen = false;
-
-    private float greenTime = 0;
-
     private bool noDamage = false;
 
     [Header("UI オブジェクト")]
@@ -72,6 +68,10 @@ public class KiyotoPlayer : MonoBehaviour
     public float blinkDuration = 0.1f;
 
     public int blinkCount = 5;
+
+    [Header("Render")]
+    public bool isGreen = false;
+    public float greenTime = 3.0f;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -278,13 +278,8 @@ public class KiyotoPlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("Green"))
 
         {
-
-            isGreen = true;
-
-            greenTime = Time.time;
-
+            StartCoroutine(GreenPlayer());
             Destroy(collision.gameObject);
-
         }
 
     }
@@ -321,6 +316,13 @@ public class KiyotoPlayer : MonoBehaviour
 
         SceneManager.LoadScene("Game over");
 
+    }
+    private IEnumerator GreenPlayer()
+    {
+        colorSwitcher.playerRenderer.color = colorSwitcher.greenColor;
+        isGreen = true;
+        yield return greenTime;
+        isGreen = false;
     }
 
 
