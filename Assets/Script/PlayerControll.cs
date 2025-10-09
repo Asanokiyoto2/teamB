@@ -134,7 +134,7 @@ public class PlayerControll : MonoBehaviour
         // === UI更新 ===
         if (goalDistanceText != null)
         {
-            goalDistanceText.text = $"ゴールまであと\n {50 - distanceSteps}";
+            goalDistanceText.text = $"ゴールまで残り\n {50 - distanceSteps}";
         }
 
         // 緑効果の時間制限
