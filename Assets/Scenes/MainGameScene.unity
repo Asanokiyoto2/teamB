@@ -3102,9 +3102,9 @@ MonoBehaviour:
   moveSpeed: 5
   knockbackForce: 5
   knockbackDuration: 0.2
-  isGreen: 0
   blinkDuration: 0.1
   blinkCount: 5
+  isGreen: 0
 --- !u!1 &596117645
 GameObject:
   m_ObjectHideFlags: 0
@@ -3139,6 +3139,7 @@ MonoBehaviour:
   backgroundRenderer2: {fileID: 1112034355}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   whiteColor: {r: 1, g: 1, b: 1, a: 1}
+  greenColor: {r: 0, g: 1, b: 0, a: 1}
   colorLerpSpeed: 1
   isWhiteBackground: 1
   player: {fileID: 0}
@@ -4428,7 +4429,7 @@ Transform:
   m_GameObject: {fileID: 847897347}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.288, y: 6.696, z: 10}
+  m_LocalPosition: {x: -9.790001, y: 6.696, z: 10}
   m_LocalScale: {x: 0.13347709, y: 0.13883103, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6214,7 +6215,7 @@ Transform:
   m_GameObject: {fileID: 1130324338}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.7564, y: 6.696, z: 10}
+  m_LocalPosition: {x: -11.258401, y: 6.696, z: 10}
   m_LocalScale: {x: 0.13347709, y: 0.15271413, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10537,7 +10538,7 @@ Transform:
   m_GameObject: {fileID: 1917403806}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.8218, y: 6.7668004, z: 10}
+  m_LocalPosition: {x: -11.323801, y: 6.7668004, z: 10}
   m_LocalScale: {x: 4.433781, y: 1.5569912, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11565,7 +11566,7 @@ Transform:
   m_GameObject: {fileID: 2121300098}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.198, y: 6.696, z: 10}
+  m_LocalPosition: {x: -12.7, y: 6.696, z: 10}
   m_LocalScale: {x: 0.13347709, y: 0.13883103, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
