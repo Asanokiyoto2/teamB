@@ -132,21 +132,14 @@ public class PlayerControll : MonoBehaviour
         float progress = (1f - (currentDistance / startDistance)) * 50f;
         int distanceSteps = Mathf.Clamp(Mathf.RoundToInt(progress), 0, 50);
         // === UI更新 ===
+
         if (goalDistanceText != null)
+
         {
+
             goalDistanceText.text = $"ゴールまで残り\n {50 - distanceSteps}";
-        }
-
-        // 緑効果の時間制限
-
-        if (isGreen && Time.time - greenTime > 2.0f)
-
-        {
-
-            isGreen = false;
 
         }
-
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -318,7 +311,7 @@ public class PlayerControll : MonoBehaviour
 
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
 
-        yield return new WaitForSeconds(stateInfo.length + 1.0f);
+        yield return new WaitForSeconds(stateInfo.length + 0.3f);
 
         SceneManager.LoadScene("Game over");
 

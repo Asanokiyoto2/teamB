@@ -1,34 +1,30 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 public class ColorSwitcher : MonoBehaviour
 {
-    //private PlayerControll Player;
-    [Header("”wŒi‚ÆƒvƒŒƒCƒ„[")]
-    public SpriteRenderer backgroundRenderer;  // ”wŒi‚ÌSpriteRenderer
-    public SpriteRenderer playerRenderer;      // ƒvƒŒƒCƒ„[‚ÌSpriteRenderer
-    public SpriteRenderer backgroundRenderer2;
-    [Header("Fİ’è")]
+    [Header("èƒŒæ™¯ã¨ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼")]
+    public SpriteRenderer backgroundRenderer;   // èƒŒæ™¯1
+    public SpriteRenderer backgroundRenderer2;  // èƒŒæ™¯2
+    public SpriteRenderer playerRenderer;       // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼
+    [Header("è‰²è¨­å®š")]
     public Color blackColor = Color.black;
     public Color whiteColor = Color.white;
     public Color greenColor = Color.green;
-    [Header("F‚Ì•Ï‰»‘¬“x")]
-    public float colorLerpSpeed = 1f; // 1•b‚Å”wŒi‚É‹ß‚Ã‚­‘¬‚³
+    [Header("è‰²ã®å¤‰åŒ–é€Ÿåº¦")]
+    public float colorLerpSpeed = 1f; // å¾ã€…ã«åŒåŒ–ã™ã‚‹é€Ÿã•
+    [Header("èƒŒæ™¯çŠ¶æ…‹")]
     public bool isWhiteBackground = true;
-    public KiyotoPlayer player;
+    [Header("ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å‚ç…§")]
+    public KiyotoPlayer player; // â† ã‚¤ãƒ³ã‚¹ãƒšã‚¯ã‚¿ãƒ¼ã§è¨­å®šï¼
     void Start()
     {
-        // ‰Šúİ’è
+        // åˆæœŸè¨­å®š
         backgroundRenderer.color = whiteColor;
         backgroundRenderer2.color = blackColor;
         playerRenderer.color = blackColor;
-
-        player = GetComponent<KiyotoPlayer>();
-        //player.isGreen = false;
-        //Player = GetComponent<PlayerControll>();
     }
     void Update()
     {
-
-        // SpaceƒL[‚Å”wŒiØ‚è‘Ö‚¦
+        // === Spaceã‚­ãƒ¼ã§èƒŒæ™¯åˆ‡ã‚Šæ›¿ãˆ ===
         if (Input.GetKeyDown(KeyCode.Space))
         {
             isWhiteBackground = !isWhiteBackground;
@@ -42,63 +38,66 @@ public class ColorSwitcher : MonoBehaviour
                 backgroundRenderer.color = blackColor;
                 backgroundRenderer2.color = whiteColor;
             }
-
-            //if(player.isGreen == false)
-            //{
-            if (isWhiteBackground)
+            Debug.Log(player.isGreen + " Green / " + isWhiteBackground + " isWhiteBackground");
+            // ã‚°ãƒªãƒ¼ãƒ³çŠ¶æ…‹ã®ã¨ãã¯è‰²ã‚’å¤‰ãˆãªã„
+            if (!player.isGreen)
             {
-
-                playerRenderer.color = blackColor;
-                //playerRenderer.color = Color.Lerp(playerRenderer.color, backgroundRenderer.color, colorLerpSpeed * Time.deltaTime);
+                if (isWhiteBackground)
+                {
+                    // ç™½èƒŒæ™¯ â†’ ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’é»’ã«ä¸€ç¬å¤‰ãˆã‚‹
+                    playerRenderer.color = blackColor;
+                }
+                else
+                {
+                    // é»’èƒŒæ™¯ â†’ ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’ç™½ã«ä¸€ç¬å¤‰ãˆã‚‹
+                    playerRenderer.color = whiteColor;
+                }
             }
-            else
-            {
-
-                playerRenderer.color = whiteColor;
-                //playerRenderer.color = Color.Lerp(playerRenderer.color, backgroundRenderer.color, colorLerpSpeed * Time.deltaTime);
-            }
-            //}
-
         }
-        // ƒvƒŒƒCƒ„[‚ğ™X‚É”wŒiF‚É‹ß‚Ã‚¯‚ÄÁ‚·
-        playerRenderer.color = Color.Lerp(playerRenderer.color, backgroundRenderer.color, colorLerpSpeed * Time.deltaTime);
-
+        // === ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’å¾ã€…ã«èƒŒæ™¯è‰²ã«è¿‘ã¥ã‘ã¦åŒåŒ– ===
+        if (!player.isGreen) // ç·‘çŠ¶æ…‹ã®æ™‚ã¯åŒåŒ–ã—ãªã„
+        {
+            playerRenderer.color = Color.Lerp(
+                playerRenderer.color,
+                backgroundRenderer.color,
+                colorLerpSpeed * Time.deltaTime
+            );
+        }
     }
-
 }
 /*using UnityEngine;
 public class ColorSwitcher : MonoBehaviour
 {
-    [Header("”wŒi‚ÆƒvƒŒƒCƒ„[")]
-    public SpriteRenderer backgroundRenderer;  // ”wŒi‚ÌSpriteRenderer
-    public SpriteRenderer playerRenderer;      // ƒvƒŒƒCƒ„[‚ÌSpriteRenderer
+    [Header("èƒŒæ™¯ã¨ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼")]
+    public SpriteRenderer backgroundRenderer;  // èƒŒæ™¯ã®SpriteRenderer
+    public SpriteRenderer playerRenderer;      // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®SpriteRenderer
     public SpriteRenderer backgroundRenderer2;
-    [Header("Fİ’è")]
+    [Header("è‰²è¨­å®š")]
     public Color blackColor = Color.black;
     public Color whiteColor = Color.white;
-    [Header("F‚Ì•Ï‰»‘¬“x")]
-    public float colorLerpSpeed = 1f; // 1•b‚Å”wŒi‚É‹ß‚Ã‚­‘¬‚³
+    [Header("è‰²ã®å¤‰åŒ–é€Ÿåº¦")]
+    public float colorLerpSpeed = 1f; // 1ç§’ã§èƒŒæ™¯ã«è¿‘ã¥ãé€Ÿã•
     public bool isWhiteBackground = true;
     public KiyotoPlayer player;//
     void Start()
     {
-        // ‰Šúİ’è
+        // åˆæœŸè¨­å®š
         backgroundRenderer.color = whiteColor;
         backgroundRenderer2.color = blackColor;
         playerRenderer.color = blackColor;
     }
     void Update()
     {
-        // SpaceƒL[‚Å”wŒiØ‚è‘Ö‚¦
+        // Spaceã‚­ãƒ¼ã§èƒŒæ™¯åˆ‡ã‚Šæ›¿ãˆ
         if (Input.GetKeyDown(KeyCode.Space))
         {
             isWhiteBackground = !isWhiteBackground;
             backgroundRenderer.color = isWhiteBackground ? whiteColor : blackColor;
-            // ”wŒi‚Æ‹t‚ÌF‚Éˆêu‚¾‚¯ƒvƒŒƒCƒ„[‚ğ•Ï‚¦‚é
+            // èƒŒæ™¯ã¨é€†ã®è‰²ã«ä¸€ç¬ã ã‘ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’å¤‰ãˆã‚‹
             playerRenderer.color = isWhiteBackground ? blackColor : whiteColor;
             backgroundRenderer2.color = isWhiteBackground ? blackColor : whiteColor;
         }
-        // ƒvƒŒƒCƒ„[‚ğ™X‚É”wŒiF‚É‹ß‚Ã‚¯‚ÄÁ‚·
+        // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’å¾ã€…ã«èƒŒæ™¯è‰²ã«è¿‘ã¥ã‘ã¦æ¶ˆã™
         playerRenderer.color = Color.Lerp(playerRenderer.color, backgroundRenderer.color, colorLerpSpeed * Time.deltaTime);
     }
     

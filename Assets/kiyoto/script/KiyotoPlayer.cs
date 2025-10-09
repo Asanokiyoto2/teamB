@@ -64,14 +64,22 @@ public class KiyotoPlayer : MonoBehaviour
     private GameObject Hart;
 
     [Header("UI 点滅設定")]
+    
+    //public float blinkDuration = 0.1f;
 
-    public float blinkDuration = 0.1f;
+    //public int blinkCount = 5;
 
-    public int blinkCount = 5;
+    [Header("Player 点滅設定")]
+
+    public float PlayerblinkDuration = 0.1f;
+
+    public int PlayerblinkCount = 5;
+
 
     [Header("Render")]
     public bool isGreen = false;
     public float greenTime = 3.0f;
+    public ColorSwitcher colorScript;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -134,16 +142,6 @@ public class KiyotoPlayer : MonoBehaviour
         if (goalDistanceText != null)
         {
             goalDistanceText.text = $"ゴールまで残り\n {50 - distanceSteps}";
-        }
-
-        // 緑効果の時間制限
-
-        if (isGreen && Time.time - greenTime > 2.0f)
-
-        {
-
-            isGreen = false;
-
         }
 
     }
@@ -279,6 +277,7 @@ public class KiyotoPlayer : MonoBehaviour
 
         {
             StartCoroutine(GreenPlayer());
+
             Destroy(collision.gameObject);
         }
 
@@ -312,7 +311,7 @@ public class KiyotoPlayer : MonoBehaviour
 
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
 
-        yield return new WaitForSeconds(stateInfo.length + 1.0f);
+        yield return new WaitForSeconds(stateInfo.length + 0.5f);
 
         SceneManager.LoadScene("Game over");
 
@@ -321,8 +320,17 @@ public class KiyotoPlayer : MonoBehaviour
     {
         colorSwitcher.playerRenderer.color = colorSwitcher.greenColor;
         isGreen = true;
-        yield return greenTime;
+        yield return new WaitForSeconds(greenTime);
+
         isGreen = false;
+        if (colorScript.isWhiteBackground && !isGreen)
+        {
+            colorScript.playerRenderer.color = colorScript.blackColor;
+        }
+        else if (!colorScript.isWhiteBackground && !isGreen)
+        {
+            colorScript.playerRenderer.color = colorScript.whiteColor;
+        }
     }
 
 

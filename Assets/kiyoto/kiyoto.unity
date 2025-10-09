@@ -2661,7 +2661,7 @@ Transform:
   m_GameObject: {fileID: 407351177}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.41, y: 2.46, z: 0}
+  m_LocalPosition: {x: -9.61, y: 3.44, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3461,6 +3461,7 @@ MonoBehaviour:
   blinkCount: 5
   isGreen: 0
   greenTime: 3
+  colorScript: {fileID: 0}
 --- !u!1 &596117645
 GameObject:
   m_ObjectHideFlags: 0
@@ -3491,14 +3492,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundRenderer: {fileID: 1414886774}
-  playerRenderer: {fileID: 592759472}
   backgroundRenderer2: {fileID: 1112034355}
+  playerRenderer: {fileID: 592759472}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   whiteColor: {r: 1, g: 1, b: 1, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   colorLerpSpeed: 1
   isWhiteBackground: 1
-  player: {fileID: 0}
+  player: {fileID: 592759474}
 --- !u!4 &596117647
 Transform:
   m_ObjectHideFlags: 0
