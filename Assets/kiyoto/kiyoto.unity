@@ -3457,11 +3457,11 @@ MonoBehaviour:
   moveSpeed: 5
   knockbackForce: 5
   knockbackDuration: 0.2
-  blinkDuration: 0.1
-  blinkCount: 5
+  PlayerblinkDuration: 0.1
+  PlayerblinkCount: 5
   isGreen: 0
   greenTime: 3
-  colorScript: {fileID: 0}
+  colorScript: {fileID: 596117646}
 --- !u!1 &596117645
 GameObject:
   m_ObjectHideFlags: 0
