@@ -65,42 +65,5 @@ public class ColorSwitcher : MonoBehaviour
         }
     }
 }
-/*using UnityEngine;
-public class ColorSwitcher : MonoBehaviour
-{
-    [Header("背景とプレイヤー")]
-    public SpriteRenderer backgroundRenderer;  // 背景のSpriteRenderer
-    public SpriteRenderer playerRenderer;      // プレイヤーのSpriteRenderer
-    public SpriteRenderer backgroundRenderer2;
-    [Header("色設定")]
-    public Color blackColor = Color.black;
-    public Color whiteColor = Color.white;
-    [Header("色の変化速度")]
-    public float colorLerpSpeed = 1f; // 1秒で背景に近づく速さ
-    public bool isWhiteBackground = true;
-    public KiyotoPlayer player;//
-    void Start()
-    {
-        // 初期設定
-        backgroundRenderer.color = whiteColor;
-        backgroundRenderer2.color = blackColor;
-        playerRenderer.color = blackColor;
-    }
-    void Update()
-    {
-        // Spaceキーで背景切り替え
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            isWhiteBackground = !isWhiteBackground;
-            backgroundRenderer.color = isWhiteBackground ? whiteColor : blackColor;
-            // 背景と逆の色に一瞬だけプレイヤーを変える
-            playerRenderer.color = isWhiteBackground ? blackColor : whiteColor;
-            backgroundRenderer2.color = isWhiteBackground ? blackColor : whiteColor;
-        }
-        // プレイヤーを徐々に背景色に近づけて消す
-        playerRenderer.color = Color.Lerp(playerRenderer.color, backgroundRenderer.color, colorLerpSpeed * Time.deltaTime);
-    }
-    
-}*/
 
 
