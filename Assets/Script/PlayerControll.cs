@@ -119,6 +119,8 @@ public class PlayerControll : MonoBehaviour
             {
                 noDamage = true;
                 life--;
+
+
                 if (life == 2)
                 {
                     anim.SetBool("damage", true);

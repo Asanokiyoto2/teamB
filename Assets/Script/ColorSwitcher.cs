@@ -38,7 +38,7 @@ public class ColorSwitcher : MonoBehaviour
                 backgroundRenderer.color = blackColor;
                 backgroundRenderer2.color = whiteColor;
             }
-            Debug.Log(player.isGreen + " Green / " + isWhiteBackground + " isWhiteBackground");
+            //Debug.Log(player.isGreen + " Green / " + isWhiteBackground + " isWhiteBackground");
             // グリーン状態のときは色を変えない
             if (!player.isGreen)
             {
