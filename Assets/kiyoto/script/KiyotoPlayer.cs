@@ -71,10 +71,9 @@ public class KiyotoPlayer : MonoBehaviour
 
     [Header("Player 点滅設定")]
 
-    public float PlayerblinkDuration = 0.3f;
+    public float PlayerblinkDuration = 0.1f;
 
     public int PlayerblinkCount = 5;
-    private bool isBlink = false;
 
 
     [Header("Render")]
@@ -322,12 +321,7 @@ public class KiyotoPlayer : MonoBehaviour
         colorSwitcher.playerRenderer.color = colorSwitcher.greenColor;
         isGreen = true;
         yield return new WaitForSeconds(greenTime);
-        for(int i = 0; PlayerblinkCount > i;i++)
-        {
-            isBlink = !isBlink;
-            this.gameObject.SetActive(isBlink);
-            yield return new WaitForSeconds(PlayerblinkDuration);
-        }
+
         isGreen = false;
         if (colorScript.isWhiteBackground && !isGreen)
         {
