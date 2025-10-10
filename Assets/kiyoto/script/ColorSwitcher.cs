@@ -101,6 +101,6 @@ public class ColorSwitcher : MonoBehaviour
         playerRenderer.color = Color.Lerp(playerRenderer.color, backgroundRenderer.color, colorLerpSpeed * Time.deltaTime);
     }
     
-}
-*/
+}*/
+
 
