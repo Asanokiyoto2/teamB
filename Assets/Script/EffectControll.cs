@@ -39,8 +39,7 @@ public class EffectControll : MonoBehaviour
     }
     private IEnumerator ChangeEffect()
     {   
-                AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-                yield return new WaitForSeconds(stateInfo.length);
+        yield return new WaitForSeconds(0.2f);
         anim.SetBool("isEffect", false);
         anim.SetBool("EffectBlack", false);
         anim.SetBool("EffectWhite", false);
