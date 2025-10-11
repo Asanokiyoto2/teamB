@@ -260,7 +260,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      huusya b 3_0: 2797814387353562821
+      huusya b 3_1: -7003626014942817456
+      huusya b 3_2: -4602624695700295381
+      huusya b 3_3: -5470800340279431272
+      huusya b 3_4: -2249736273728512695
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
