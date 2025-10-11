@@ -8,7 +8,7 @@ public class TitleMenu : MonoBehaviour
     public void OnStartButton()
     {
         // ゲームシーンへ遷移
-        SceneManager.LoadScene("MainGameScene");
+        SceneManager.LoadScene("MainGameScene"); 
         //SceneManager.LoadScene("setumeiScene");
     }
     public void OnTitleButton()
@@ -25,7 +25,7 @@ public class TitleMenu : MonoBehaviour
         // Enterキーが押されたらシーンを切り替える
         if (Input.GetKeyDown(KeyCode.Return))  // Return = Enterキー
         {
-            SceneManager.LoadScene("MainGameScene");
+            SceneManager.LoadScene("kiyoto");
             
         }
         if (Input.GetKeyDown(KeyCode.Escape))
