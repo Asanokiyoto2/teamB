@@ -959,7 +959,7 @@ GameObject:
   - component: {fileID: 55758582}
   m_Layer: 0
   m_Name: huusya w 3
-  m_TagString: 'Huusya '
+  m_TagString: Huusya
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10812,7 +10812,7 @@ GameObject:
   - component: {fileID: 933706943}
   m_Layer: 0
   m_Name: huusya w 3 (1)
-  m_TagString: 'Huusya '
+  m_TagString: Huusya
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11619,7 +11619,7 @@ GameObject:
   - component: {fileID: 976907682}
   m_Layer: 0
   m_Name: huusya w 3 (2)
-  m_TagString: 'Huusya '
+  m_TagString: Huusya
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23819,7 +23819,7 @@ GameObject:
   - component: {fileID: 2086363078}
   m_Layer: 0
   m_Name: huusya w 3 (3)
-  m_TagString: 'Huusya '
+  m_TagString: Huusya
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
