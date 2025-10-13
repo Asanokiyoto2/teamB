@@ -113,7 +113,7 @@ public class PlayerControll : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         // === 敵との接触 ===
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Huusya"))
         {
             if (!isBarrier && !isGreen && !noDamage)
             {
@@ -175,12 +175,12 @@ public class PlayerControll : MonoBehaviour
             }
             Destroy(collision.gameObject);
         }
-        // === ゴール到達 ===
+        //  ゴール
         if (collision.gameObject.CompareTag("Goal"))
         {
             SceneManager.LoadScene("gameclear");
         }
-        // === カラー反転アイテム ===
+        //  カラー反転
         if (colorSwitcher.isWhiteBackground && collision.gameObject.CompareTag("Render"))
         {
             colorSwitcher.playerRenderer.color = colorSwitcher.blackColor;
@@ -191,7 +191,12 @@ public class PlayerControll : MonoBehaviour
             colorSwitcher.playerRenderer.color = colorSwitcher.whiteColor;
             Destroy(collision.gameObject);
         }
-        // === グリーンアイテム ===
+        //風車
+        if (collision.gameObject.CompareTag("Huusya"))
+        {
+            Destroy(collision.gameObject);
+        }
+            // === グリーンアイテム ===
         if (collision.gameObject.CompareTag("Green"))
         {
             ActivateGreenMode();
