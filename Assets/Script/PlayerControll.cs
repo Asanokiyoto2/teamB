@@ -14,7 +14,7 @@ public class PlayerControll : MonoBehaviour
     private float startDistance;
     [Header("ライフ設定")]
     public int Maxlife = 3;
-    public int life;
+    public static int life;
     [Header("移動設定")]
     public float moveSpeed = 5f;
     [Header("ノックバック設定")]

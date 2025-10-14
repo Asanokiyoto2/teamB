@@ -8,19 +8,19 @@ public class EffectControll : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        currentLife = player.life;
+        currentLife = PlayerControll.life;
     }
     void Update()
     {
         // HPが変化したとき（＝被弾した瞬間）
-        if (currentLife != player.life)
+        if (currentLife != PlayerControll.life)
         {
             // 以前より減っていたら被弾とみなす
-            if (currentLife > player.life)
+            if (currentLife > PlayerControll.life)
             {
                 PlayEffect();
             }
-            currentLife = player.life;
+            currentLife = PlayerControll.life;
         }
         // アニメーション終了を検知して非表示に戻す
         if (isPlayingEffect)
