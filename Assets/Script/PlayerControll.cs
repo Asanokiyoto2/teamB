@@ -41,9 +41,12 @@ public class PlayerControll : MonoBehaviour
     public bool isGreen = false;
     public float greenTime = 3.0f;
     public ColorSwitcher colorScript;
-    // 内部制御
     private float greenTimer = 0f;
     private bool isWaitingForBlink = false;
+    [Header("効果音設定")]
+    public AudioClip Barrier;    // バリア取得音
+    public AudioClip lifeGet;    // アイテム取得音（追加）
+    private AudioSource audioSource;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -58,6 +61,8 @@ public class PlayerControll : MonoBehaviour
         Circle = GameObject.Find("Circle");
         Star = GameObject.Find("Star");
         Hart = GameObject.Find("Hart");
+        // 🔊 AudioSource初期化
+        audioSource = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -93,7 +98,7 @@ public class PlayerControll : MonoBehaviour
                 {
                     isBlinking = false;
                     colorSwitcher.playerRenderer.enabled = true;
-                    EndGreenMode(); // ← 点滅終了時に元の色へ戻す
+                    EndGreenMode(); // 点滅終了時に元の色へ戻す
                 }
             }
         }
@@ -119,8 +124,6 @@ public class PlayerControll : MonoBehaviour
             {
                 noDamage = true;
                 life--;
-
-
                 if (life == 2)
                 {
                     anim.SetBool("damage", true);
@@ -152,6 +155,7 @@ public class PlayerControll : MonoBehaviour
         if (collision.gameObject.CompareTag("Barrier"))
         {
             isBarrier = true;
+            audioSource.PlayOneShot(Barrier);
             Destroy(collision.gameObject);
         }
         // === 回復アイテム ===
@@ -173,14 +177,17 @@ public class PlayerControll : MonoBehaviour
                     Hart.SetActive(true);
                 }
             }
+            // 🔊 アイテム取得音再生
+            if (lifeGet != null)
+                audioSource.PlayOneShot(lifeGet);
             Destroy(collision.gameObject);
         }
-        //  ゴール
+        // === ゴール ===
         if (collision.gameObject.CompareTag("Goal"))
         {
             SceneManager.LoadScene("gameclear");
         }
-        //  カラー反転
+        // === カラー反転 ===
         if (colorSwitcher.isWhiteBackground && collision.gameObject.CompareTag("Render"))
         {
             colorSwitcher.playerRenderer.color = colorSwitcher.blackColor;
@@ -191,12 +198,12 @@ public class PlayerControll : MonoBehaviour
             colorSwitcher.playerRenderer.color = colorSwitcher.whiteColor;
             Destroy(collision.gameObject);
         }
-        //風車
+        // === 風車 ===
         if (collision.gameObject.CompareTag("Huusya"))
         {
             Destroy(collision.gameObject);
         }
-            // === グリーンアイテム ===
+        // === グリーンアイテム ===
         if (collision.gameObject.CompareTag("Green"))
         {
             ActivateGreenMode();
