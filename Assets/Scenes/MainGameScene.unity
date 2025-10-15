@@ -2206,7 +2206,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
 --- !u!61 &393748842
 BoxCollider2D:
@@ -2996,7 +2996,6 @@ MonoBehaviour:
   colorSwitcher: {fileID: 596117646}
   goal: {fileID: 370282418}
   Maxlife: 3
-  life: 3
   moveSpeed: 5
   knockbackForce: 5
   knockbackDuration: 0.2

@@ -1,8 +1,9 @@
+using TMPro;
 using UnityEngine;
 
 public class Life : MonoBehaviour
 {
-    public PlayerControll player;
+    public TextMeshProUGUI lifeText;
     public SpriteRenderer life1;
     public SpriteRenderer life2;
     public SpriteRenderer life3;
@@ -11,7 +12,6 @@ public class Life : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //player = GetComponent<PlayerControll>();
         if (PlayerControll.life == 3)
         {
             life1.color = blackColor;
@@ -30,6 +30,7 @@ public class Life : MonoBehaviour
             life2.color = whiteColor;
             life3.color = blackColor;
         }
+        lifeText.text = $"Žc‚èƒ‰ƒCƒt{PlayerControll.life}";
     }
 
     // Update is called once per frame
