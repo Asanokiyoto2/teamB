@@ -30,7 +30,7 @@ public class Life : MonoBehaviour
             life2.color = whiteColor;
             life3.color = blackColor;
         }
-        lifeText.text = $"Žc‚èƒ‰ƒCƒt{PlayerControll.life}";
+        lifeText.text = $"{PlayerControll.life}";
     }
 
     // Update is called once per frame
