@@ -6637,8 +6637,8 @@ MonoBehaviour:
   isGreen: 0
   greenTime: 3
   colorScript: {fileID: 596117646}
-  Barrier: {fileID: 0}
-  lifeGet: {fileID: 0}
+  Barrier: {fileID: 8300000, guid: 68a1b458a03005e428a798429efb74f2, type: 3}
+  lifeGet: {fileID: 8300000, guid: aafab3c87b83afe479b593d91ffaa4b7, type: 3}
 --- !u!82 &592759475
 AudioSource:
   m_ObjectHideFlags: 0
@@ -19154,7 +19154,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -23419,7 +23419,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
