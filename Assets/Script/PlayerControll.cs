@@ -184,8 +184,11 @@ public class PlayerControll : MonoBehaviour
                     anim.SetBool("damage2", false);
                     Hart.SetActive(true);
                     audioSource.PlayOneShot(lifeGet);
+                    
                 }
+                
             }
+            Destroy(collision.gameObject);
         }
         // === ゴール ===
         if (collision.gameObject.CompareTag("Goal"))
