@@ -5,11 +5,11 @@ public class PlayerDeath : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("DeadZone"))
+        /* if (other.gameObject.CompareTag("DeadZone"))
         {
             Debug.Log("上部に当たった！プレイヤー死亡。");
             Die();
-        }
+        }*/
     }
 
     void Die()
