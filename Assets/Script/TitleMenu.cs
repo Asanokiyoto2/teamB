@@ -25,14 +25,14 @@ public class TitleMenu : MonoBehaviour
         // Enterキーが押されたらシーンを切り替える
         if (Input.GetKeyDown(KeyCode.Return))  // Return = Enterキー
         {
-            SceneManager.LoadScene("kiyoto");
+            SceneManager.LoadScene("MainGameScene");
             
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        /*if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("Operating Instructions");
 
-        }
+        }*/
     }
     // 終了ボタン
     public void OnExitButton()
