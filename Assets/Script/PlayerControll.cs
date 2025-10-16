@@ -89,19 +89,14 @@ public class PlayerControll : MonoBehaviour
     private bool isWaitingForBlink = false;
 
     [Header("効果音設定")]
-<<<<<<< HEAD
     public AudioClip Barrier;    // バリア取得音
     public AudioClip lifeGet;    // アイテム取得音（追加）
     public AudioClip Damage;
     //public AudioClip Knockback;
     public AudioClip Green;
-=======
+    public AudioClip Tornado;
 
-    public AudioClip Barrier;   // バリア取得音
 
-    public AudioClip lifeGet;   // 回復アイテム音
-
->>>>>>> asano
     private AudioSource audioSource;
 
     void Start()
@@ -253,43 +248,29 @@ public class PlayerControll : MonoBehaviour
                 if (life == 2)
 
                 {
-
-                    anim.SetBool("damage", true);
-
-                    anim.SetBool("Heal", false);
-<<<<<<< HEAD
-                    Circle.SetActive(false);
                     audioSource.PlayOneShot(Damage);
-=======
-
->>>>>>> asano
+                    anim.SetBool("damage", true);
+                    anim.SetBool("Heal", false);
+                    Circle.SetActive(false);
+                    
                 }
 
                 else if (life == 1)
 
                 {
-
+                    audioSource.PlayOneShot(Damage);
                     anim.SetBool("damage2", true);
 
                     anim.SetBool("Heal2", false);
-<<<<<<< HEAD
                     Hart.SetActive(false);
-                    audioSource.PlayOneShot(Damage);
-=======
 
->>>>>>> asano
                 }
 
                 else if (life <= 0)
 
                 {
-
-                    anim.SetBool("damage3", true);
-<<<<<<< HEAD
                     audioSource.PlayOneShot(Damage);
-=======
-
->>>>>>> asano
+                    anim.SetBool("damage3", true);
                     StartCoroutine(PlayDeathAnimationAndGameOver());
 
                 }
@@ -315,7 +296,6 @@ public class PlayerControll : MonoBehaviour
             }
 
         }
-<<<<<<< HEAD
         // === バリア ===
         if (collision.gameObject.CompareTag("Barrier"))
         {
@@ -353,17 +333,6 @@ public class PlayerControll : MonoBehaviour
         {
             SceneManager.LoadScene("gameclear");
         }
-        // === カラー反転 ===
-        /*if (colorSwitcher.isWhiteBackground && collision.gameObject.CompareTag("Render"))
-        {
-            colorSwitcher.playerRenderer.color = colorSwitcher.blackColor;
-            Destroy(collision.gameObject);
-        }*/
-        else if (!colorSwitcher.isWhiteBackground && collision.gameObject.CompareTag("Render"))
-        {
-            colorSwitcher.playerRenderer.color = colorSwitcher.whiteColor;
-            Destroy(collision.gameObject);
-        }
         // === 風車 ===
         if (collision.gameObject.CompareTag("Huusya"))
         {
@@ -376,104 +345,17 @@ public class PlayerControll : MonoBehaviour
             ActivateGreenMode();
             Destroy(collision.gameObject);
         }
-=======
-
->>>>>>> asano
     }
 
     // === トリガー判定 ===
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D collision)
 
     {
-
-        switch (other.tag)
-
+        if (collision.gameObject.CompareTag("Tornado"))
         {
-
-            case "Barrier":
-
-                isBarrier = true;
-
-                audioSource.PlayOneShot(Barrier);
-
-                Destroy(other.gameObject);
-
-                break;
-
-            case "Item":
-
-                if (life < Maxlife)
-
-                {
-
-                    life++;
-
-                    if (life == 3)
-
-                    {
-
-                        anim.SetBool("Heal", true);
-
-                        anim.SetBool("damage", false);
-
-                        Circle.SetActive(true);
-
-                    }
-
-                    else if (life == 2)
-
-                    {
-
-                        anim.SetBool("Heal2", true);
-
-                        anim.SetBool("damage2", false);
-
-                        Hart.SetActive(true);
-
-                    }
-
-                    audioSource.PlayOneShot(lifeGet);
-
-                }
-
-                Destroy(other.gameObject);
-
-                break;
-
-            case "Goal":
-
-                SceneManager.LoadScene("gameclear");
-
-                break;
-
-            case "Render":
-
-                if (colorSwitcher.isWhiteBackground)
-                {
-                    colorSwitcher.playerRenderer.color = colorSwitcher.blackColor;
-                }
-
-
-                else
-                {
-                    colorSwitcher.playerRenderer.color = colorSwitcher.whiteColor;
-                }
-
-                Destroy(other.gameObject);
-
-                break;
-
-            case "Green":
-
-                ActivateGreenMode();
-
-                Destroy(other.gameObject);
-
-                break;
-
+            audioSource.PlayOneShot(Tornado);
         }
-
     }
 
     private IEnumerator ApplyKnockback(Vector2 direction)

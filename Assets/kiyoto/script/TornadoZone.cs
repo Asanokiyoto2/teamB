@@ -12,21 +12,18 @@ public class TornadoZone : MonoBehaviour
     public float windDuration = 0f;
     [Tooltip("•—‚Ì“–‚½‚è”»’è")]
     public bool useTrigger = true;
-    public AudioClip Tornado;
-    private AudioSource audioSource;
     private void Reset()
     {
         // ©“®‚ÅTriggerİ’è
         Collider2D col = GetComponent<Collider2D>();
-        audioSource = GetComponent<AudioSource>();
         col.isTrigger = true;
+        
     }
     private void OnTriggerStay2D(Collider2D other)
     {
         // ƒvƒŒƒCƒ„[”»’è
         if (other.CompareTag("Player"))
         {
-
             Rigidbody2D rb = other.attachedRigidbody;
             if (rb != null)
             {
