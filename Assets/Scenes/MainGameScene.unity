@@ -6423,8 +6423,11 @@ MonoBehaviour:
   colorScript: {fileID: 596117646}
   Barrier: {fileID: 0}
   lifeGet: {fileID: 0}
+<<<<<<< HEAD
   Damage: {fileID: 0}
   Green: {fileID: 0}
+=======
+>>>>>>> origin/Raissssss
 --- !u!1 &596117645
 GameObject:
   m_ObjectHideFlags: 0
