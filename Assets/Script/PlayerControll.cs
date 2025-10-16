@@ -46,6 +46,9 @@ public class PlayerControll : MonoBehaviour
     [Header("効果音設定")]
     public AudioClip Barrier;    // バリア取得音
     public AudioClip lifeGet;    // アイテム取得音（追加）
+    public AudioClip Damage;
+    //public AudioClip Knockback;
+    public AudioClip Green;
     private AudioSource audioSource;
     void Start()
     {
@@ -129,15 +132,19 @@ public class PlayerControll : MonoBehaviour
                     anim.SetBool("damage", true);
                     anim.SetBool("Heal", false);
                     Circle.SetActive(false);
+                    audioSource.PlayOneShot(Damage);
                 }
                 else if (life == 1)
                 {
                     anim.SetBool("damage2", true);
                     anim.SetBool("Heal2", false);
+                    Hart.SetActive(false);
+                    audioSource.PlayOneShot(Damage);
                 }
                 else if (life <= 0)
                 {
                     anim.SetBool("damage3", true);
+                    audioSource.PlayOneShot(Damage);
                     StartCoroutine(PlayDeathAnimationAndGameOver());
                 }
             }
@@ -169,18 +176,16 @@ public class PlayerControll : MonoBehaviour
                     anim.SetBool("Heal", true);
                     anim.SetBool("damage", false);
                     Circle.SetActive(true);
+                    audioSource.PlayOneShot(lifeGet);
                 }
                 else if (life == 2)
                 {
                     anim.SetBool("Heal2", true);
                     anim.SetBool("damage2", false);
                     Hart.SetActive(true);
+                    audioSource.PlayOneShot(lifeGet);
                 }
             }
-            // 🔊 アイテム取得音再生
-            if (lifeGet != null)
-                audioSource.PlayOneShot(lifeGet);
-            Destroy(collision.gameObject);
         }
         // === ゴール ===
         if (collision.gameObject.CompareTag("Goal"))
@@ -188,11 +193,11 @@ public class PlayerControll : MonoBehaviour
             SceneManager.LoadScene("gameclear");
         }
         // === カラー反転 ===
-        if (colorSwitcher.isWhiteBackground && collision.gameObject.CompareTag("Render"))
+        /*if (colorSwitcher.isWhiteBackground && collision.gameObject.CompareTag("Render"))
         {
             colorSwitcher.playerRenderer.color = colorSwitcher.blackColor;
             Destroy(collision.gameObject);
-        }
+        }*/
         else if (!colorSwitcher.isWhiteBackground && collision.gameObject.CompareTag("Render"))
         {
             colorSwitcher.playerRenderer.color = colorSwitcher.whiteColor;
@@ -206,6 +211,7 @@ public class PlayerControll : MonoBehaviour
         // === グリーンアイテム ===
         if (collision.gameObject.CompareTag("Green"))
         {
+            audioSource.PlayOneShot(Green);
             ActivateGreenMode();
             Destroy(collision.gameObject);
         }
