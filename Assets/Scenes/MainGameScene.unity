@@ -6424,10 +6424,15 @@ MonoBehaviour:
   Barrier: {fileID: 0}
   lifeGet: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   Damage: {fileID: 0}
   Green: {fileID: 0}
 =======
 >>>>>>> origin/Raissssss
+=======
+  Damage: {fileID: 0}
+  Green: {fileID: 0}
+>>>>>>> origin/main
 --- !u!1 &596117645
 GameObject:
   m_ObjectHideFlags: 0
