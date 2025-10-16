@@ -2959,6 +2959,8 @@ MonoBehaviour:
   colorScript: {fileID: 596117646}
   Barrier: {fileID: 8300000, guid: 68a1b458a03005e428a798429efb74f2, type: 3}
   lifeGet: {fileID: 8300000, guid: aafab3c87b83afe479b593d91ffaa4b7, type: 3}
+  Damage: {fileID: 8300000, guid: 9d3c460fda470ea4e9cfe13f12aeede0, type: 3}
+  Knockback: {fileID: 0}
 --- !u!1 &596117645
 GameObject:
   m_ObjectHideFlags: 0
@@ -3325,7 +3327,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772831151}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b488579087dbd3f4c81ee4fdae80c8af, type: 3}
   m_Name: 
