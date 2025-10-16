@@ -4186,7 +4186,7 @@ Transform:
   m_GameObject: {fileID: 370282416}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.15, y: 0.18, z: 0}
+  m_LocalPosition: {x: -0.6, y: 0.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6593,7 +6593,6 @@ MonoBehaviour:
   Barrier: {fileID: 0}
   lifeGet: {fileID: 0}
   Damage: {fileID: 0}
-  Knockback: {fileID: 0}
   Green: {fileID: 0}
 --- !u!82 &592759475
 AudioSource:
@@ -23135,6 +23134,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 522713091548522528, guid: 4f740bd6ecf9a054ab9cab05e69a25eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567357347708587533, guid: 4f740bd6ecf9a054ab9cab05e69a25eb, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567357347708587533, guid: 4f740bd6ecf9a054ab9cab05e69a25eb, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567357347708587533, guid: 4f740bd6ecf9a054ab9cab05e69a25eb, type: 3}
+      propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4481664302512239674, guid: 4f740bd6ecf9a054ab9cab05e69a25eb, type: 3}
