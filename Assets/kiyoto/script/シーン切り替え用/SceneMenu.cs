@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class TitleMenu : MonoBehaviour
+public class SceneMenu : MonoBehaviour
 {
 
     // ゲーム開始ボタン
@@ -11,10 +11,7 @@ public class TitleMenu : MonoBehaviour
         SceneManager.LoadScene("MainGameScene");
         
     }
-    public void OnStartMainExplanation()
-    {
-        SceneManager.LoadScene("Explanation");
-    }
+    
     public void OnTitleButton()
     {
         SceneManager.LoadScene("TitleScene");
