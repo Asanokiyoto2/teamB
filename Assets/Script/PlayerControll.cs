@@ -46,6 +46,8 @@ public class PlayerControll : MonoBehaviour
     [Header("効果音設定")]
     public AudioClip Barrier;    // バリア取得音
     public AudioClip lifeGet;    // アイテム取得音（追加）
+    public AudioClip Damage;
+    public AudioClip Knockback;
     private AudioSource audioSource;
     void Start()
     {
@@ -134,6 +136,7 @@ public class PlayerControll : MonoBehaviour
                 {
                     anim.SetBool("damage2", true);
                     anim.SetBool("Heal2", false);
+                    Hart.SetActive(false);
                 }
                 else if (life <= 0)
                 {
