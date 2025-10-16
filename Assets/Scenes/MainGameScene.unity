@@ -3004,6 +3004,8 @@ MonoBehaviour:
   isGreen: 0
   greenTime: 3
   colorScript: {fileID: 596117646}
+  Barrier: {fileID: 8300000, guid: 68a1b458a03005e428a798429efb74f2, type: 3}
+  lifeGet: {fileID: 8300000, guid: aafab3c87b83afe479b593d91ffaa4b7, type: 3}
 --- !u!1 &596117645
 GameObject:
   m_ObjectHideFlags: 0
