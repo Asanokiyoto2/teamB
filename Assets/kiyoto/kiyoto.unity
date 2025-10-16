@@ -6381,7 +6381,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592759465}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -6592,6 +6592,9 @@ MonoBehaviour:
   colorScript: {fileID: 596117646}
   Barrier: {fileID: 0}
   lifeGet: {fileID: 0}
+  Damage: {fileID: 0}
+  Knockback: {fileID: 0}
+  Green: {fileID: 0}
 --- !u!82 &592759475
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8837,11 +8840,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193029883536204688, guid: 53d8b910285a74440a2fab58193b713f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 33.52
+      value: -12.18
       objectReference: {fileID: 0}
     - target: {fileID: 2193029883536204688, guid: 53d8b910285a74440a2fab58193b713f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.17
+      value: -2.25
       objectReference: {fileID: 0}
     - target: {fileID: 2193029883536204688, guid: 53d8b910285a74440a2fab58193b713f, type: 3}
       propertyPath: m_LocalPosition.z

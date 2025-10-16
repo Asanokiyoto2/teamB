@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 [RequireComponent(typeof(Collider2D))]
 public class TornadoZone : MonoBehaviour
 {
@@ -11,10 +12,13 @@ public class TornadoZone : MonoBehaviour
     public float windDuration = 0f;
     [Tooltip("風の当たり判定")]
     public bool useTrigger = true;
+    public AudioClip Tornado;
+    private AudioSource audioSource;
     private void Reset()
     {
         // 自動でTrigger設定
         Collider2D col = GetComponent<Collider2D>();
+        audioSource = GetComponent<AudioSource>();
         col.isTrigger = true;
     }
     private void OnTriggerStay2D(Collider2D other)
@@ -22,25 +26,13 @@ public class TornadoZone : MonoBehaviour
         // プレイヤー判定
         if (other.CompareTag("Player"))
         {
+
             Rigidbody2D rb = other.attachedRigidbody;
             if (rb != null)
             {
                 // 風の向きを正規化して押す
                 Vector2 forceDir = windDirection.normalized * windForce;
                 // AddForceModeをImpulseにすると強く、一瞬で押される
-                rb.AddForce(forceDir, ForceMode2D.Force);
-            }
-        }
-    }
-    // コライダーがTriggerじゃない場合（通常の衝突判定用）
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (!useTrigger && collision.gameObject.CompareTag("Player"))
-        {
-            Rigidbody2D rb = collision.rigidbody;
-            if (rb != null)
-            {
-                Vector2 forceDir = windDirection.normalized * windForce;
                 rb.AddForce(forceDir, ForceMode2D.Force);
             }
         }
