@@ -188,11 +188,11 @@ public class PlayerControll : MonoBehaviour
             SceneManager.LoadScene("gameclear");
         }
         // === カラー反転 ===
-        if (colorSwitcher.isWhiteBackground && collision.gameObject.CompareTag("Render"))
+        /*if (colorSwitcher.isWhiteBackground && collision.gameObject.CompareTag("Render"))
         {
             colorSwitcher.playerRenderer.color = colorSwitcher.blackColor;
             Destroy(collision.gameObject);
-        }
+        }*/
         else if (!colorSwitcher.isWhiteBackground && collision.gameObject.CompareTag("Render"))
         {
             colorSwitcher.playerRenderer.color = colorSwitcher.whiteColor;
