@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      kaidan w 1_0: 4267689747520946585
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
