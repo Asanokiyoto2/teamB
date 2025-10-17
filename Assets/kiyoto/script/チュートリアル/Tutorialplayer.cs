@@ -7,7 +7,7 @@ public class Tutorialplayer : MonoBehaviour
     [Header("アニメーション")]
     private Animator anim = null;
     [Header("UI")]
-    public ColorSwitcher colorSwitcher;
+    public TutorialColorSwitcher colorSwitcher;
     private float startDistance;
     [Header("ライフ設定")]
     public int Maxlife = 3;
@@ -37,7 +37,7 @@ public class Tutorialplayer : MonoBehaviour
     [Header("Render")]
     public bool isGreen = false;
     public float greenTime = 3.0f;
-    public ColorSwitcher colorScript;
+    public TutorialColorSwitcher colorScript;
     private float greenTimer = 0f;
     private bool isWaitingForBlink = false;
     [Header("効果音設定")]
@@ -51,6 +51,8 @@ public class Tutorialplayer : MonoBehaviour
     private AudioSource audioSource;
     private AudioSource huusyaAudioSource; // 風車用AudioSource
     private GameObject nearestHuusya; // 一番近い風車を保持
+
+    [SerializeField]private Vector3 StartPos;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -68,6 +70,8 @@ public class Tutorialplayer : MonoBehaviour
         huusyaAudioSource.loop = true;
         huusyaAudioSource.volume = 0f; // 初期は無音
         huusyaAudioSource.Play();
+
+        //StartPos = transform.position; 
     }
     void Update()
     {
@@ -110,6 +114,15 @@ public class Tutorialplayer : MonoBehaviour
                     EndGreenMode();
                 }
             }
+        }
+        //プレイヤー復活
+        Debug.Log("プレイヤー復活:"+(transform.position == StartPos));
+        if(life <= 0 && transform.position == StartPos)
+        {
+
+            //gameObject.SetActive(true);
+            this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            life = 3;
         }
         // === Huusya音量制御 ===
         UpdateHuusyaSound();
@@ -166,6 +179,11 @@ public class Tutorialplayer : MonoBehaviour
                 else if (life <= 0)
                 {
                     anim.SetBool("damage3", true);
+                    //gameObject.SetActive(false);
+                    this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                    transform.position = StartPos;
+                    Debug.Log(transform.position);
+                    Debug.Log(StartPos);
                 }
             }
             else isBarrier = false;
@@ -201,10 +219,6 @@ public class Tutorialplayer : MonoBehaviour
                 }
             }
             Destroy(collision.gameObject);
-        }
-        if (collision.gameObject.CompareTag("Goal"))
-        {
-            SceneManager.LoadScene("gameclear");
         }
         if (collision.gameObject.CompareTag("Huusya"))
         {
