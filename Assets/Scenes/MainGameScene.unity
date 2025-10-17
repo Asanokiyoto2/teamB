@@ -3290,7 +3290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630f6fee4220b894faeb1ee4087e5ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 592759474}
+  player: {fileID: 0}
 --- !u!4 &279194580 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7207386930225179232, guid: 6c666d6d7f832af4da3ffd35b0069ab3, type: 3}
@@ -6361,7 +6361,7 @@ GameObject:
   - component: {fileID: 592759469}
   - component: {fileID: 592759467}
   - component: {fileID: 592759466}
-  - component: {fileID: 592759474}
+  - component: {fileID: 592759476}
   - component: {fileID: 592759475}
   m_Layer: 0
   m_Name: Player
@@ -6562,37 +6562,6 @@ Transform:
   - {fileID: 1183859997}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &592759474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 592759465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fc5812480c53424c97beb76f368de4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goalDistanceText: {fileID: 819900069}
-  colorSwitcher: {fileID: 596117646}
-  goal: {fileID: 370282418}
-  Maxlife: 3
-  moveSpeed: 5
-  knockbackForce: 5
-  knockbackDuration: 0.2
-  PlayerblinkDuration: 0.3
-  PlayerblinkCount: 5
-  isGreen: 0
-  greenTime: 3
-  colorScript: {fileID: 596117646}
-  Barrier: {fileID: 8300000, guid: 68a1b458a03005e428a798429efb74f2, type: 3}
-  lifeGet: {fileID: 8300000, guid: aafab3c87b83afe479b593d91ffaa4b7, type: 3}
-  Damage: {fileID: 8300000, guid: 9d3c460fda470ea4e9cfe13f12aeede0, type: 3}
-  Green: {fileID: 8300000, guid: 658b45a0ecdf7ee409908939bd471434, type: 3}
-  Tornado: {fileID: 8300000, guid: 8b21e43ecec18bd43b30bf4967848160, type: 3}
-  HuusyaSound: {fileID: 8300000, guid: c240c6d2574e4b640a62e7d2d3035960, type: 3}
-  Render: {fileID: 8300000, guid: d8f6e1af732bfd649ab181f2650d4863, type: 3}
 --- !u!82 &592759475
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6690,6 +6659,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &592759476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592759465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fc5812480c53424c97beb76f368de4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goalDistanceText: {fileID: 466711343}
+  colorSwitcher: {fileID: 596117646}
+  goal: {fileID: 370282418}
+  Maxlife: 3
+  moveSpeed: 5
+  knockbackForce: 5
+  knockbackDuration: 0.2
+  PlayerblinkDuration: 0.3
+  PlayerblinkCount: 5
+  isGreen: 0
+  greenTime: 3
+  colorScript: {fileID: 0}
+  Barrier: {fileID: 8300000, guid: 68a1b458a03005e428a798429efb74f2, type: 3}
+  lifeGet: {fileID: 8300000, guid: aafab3c87b83afe479b593d91ffaa4b7, type: 3}
+  Damage: {fileID: 8300000, guid: 9d3c460fda470ea4e9cfe13f12aeede0, type: 3}
+  Green: {fileID: 8300000, guid: 658b45a0ecdf7ee409908939bd471434, type: 3}
+  Tornado: {fileID: 8300000, guid: 8b21e43ecec18bd43b30bf4967848160, type: 3}
+  HuusyaSound: {fileID: 8300000, guid: c240c6d2574e4b640a62e7d2d3035960, type: 3}
+  Render: {fileID: 8300000, guid: d8f6e1af732bfd649ab181f2650d4863, type: 3}
 --- !u!1 &596117645
 GameObject:
   m_ObjectHideFlags: 0
@@ -6727,7 +6727,7 @@ MonoBehaviour:
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   colorLerpSpeed: 1
   isWhiteBackground: 1
-  player: {fileID: 592759474}
+  player: {fileID: 592759476}
 --- !u!4 &596117647
 Transform:
   m_ObjectHideFlags: 0
@@ -19131,7 +19131,7 @@ MonoBehaviour:
   circleUI: {fileID: 1130324338}
   heartUI: {fileID: 847897347}
   starUI: {fileID: 2121300098}
-  player: {fileID: 592759474}
+  player: {fileID: 592759476}
   blinkDuration: 0.1
   blinkCount: 5
 --- !u!4 &1604615354

@@ -14,7 +14,7 @@ public class ColorSwitcher : MonoBehaviour
     [Header("背景状態")]
     public bool isWhiteBackground = true;
     [Header("プレイヤー参照")]
-    public TutorialPlayer player;
+    public PlayerControll player;
     void Start()
     {
         // 初期設定

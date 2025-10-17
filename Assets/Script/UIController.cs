@@ -16,7 +16,7 @@ public class UIController : MonoBehaviour
 
     [Header("プレイヤー指定")]
 
-    public TutorialPlayer player;
+    public PlayerControll player;
 
     [Header("点滅設定")]
 
