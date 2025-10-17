@@ -51,6 +51,7 @@ public class PlayerControll : MonoBehaviour
     public AudioClip Tornado;
     public AudioClip HuusyaSound;
     public AudioClip Render;
+    public AudioClip Scenes;
     private AudioSource audioSource;
     private AudioSource huusyaAudioSource; // 風車用AudioSource
     private GameObject nearestHuusya; // 一番近い風車を保持
@@ -75,6 +76,7 @@ public class PlayerControll : MonoBehaviour
         huusyaAudioSource.loop = true;
         huusyaAudioSource.volume = 0f; // 初期は無音
         huusyaAudioSource.Play();
+        audioSource.PlayOneShot(Scenes);
     }
     void Update()
     {
