@@ -2,7 +2,7 @@ using UnityEngine;
 
 using System.Collections;
 
-public class UIController : MonoBehaviour
+public class TutorialUIController : MonoBehaviour
 
 {
 
@@ -16,7 +16,7 @@ public class UIController : MonoBehaviour
 
     [Header("プレイヤー指定")]
 
-    public TutorialPlayer player;
+    public Tutorialplayer player;
 
     [Header("点滅設定")]
 
@@ -221,5 +221,3 @@ public class UIController : MonoBehaviour
     }
 
 }
-
-

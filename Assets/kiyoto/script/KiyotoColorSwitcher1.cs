@@ -14,7 +14,7 @@ public class KiyotoColorSwitcher1 : MonoBehaviour
     [Header("背景状態")]
     public bool isWhiteBackground = true;
     [Header("プレイヤー参照")]
-    public PlayerControll player; // ← インスペクターで設定！
+    public TutorialPlayer player; // ← インスペクターで設定！
     void Start()
     {
         // 初期設定

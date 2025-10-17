@@ -1,30 +1,30 @@
-ï»¿using UnityEngine;
-public class ColorSwitcher : MonoBehaviour
+using UnityEngine;
+public class TutorialColorSwitcher : MonoBehaviour
 {
-    [Header("èƒŒæ™¯ã¨ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼")]
-    public SpriteRenderer backgroundRenderer;   // èƒŒæ™¯1
-    public SpriteRenderer backgroundRenderer2;  // èƒŒæ™¯2
-    public SpriteRenderer playerRenderer;       // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼
-    [Header("è‰²è¨­å®š")]
+    [Header("”wŒi‚ÆƒvƒŒƒCƒ„[")]
+    public SpriteRenderer backgroundRenderer;   // ”wŒi1
+    public SpriteRenderer backgroundRenderer2;  // ”wŒi2
+    public SpriteRenderer playerRenderer;       // ƒvƒŒƒCƒ„[
+    [Header("Fİ’è")]
     public Color blackColor = Color.black;
     public Color whiteColor = Color.white;
     public Color greenColor = Color.green;
-    [Header("è‰²ã®å¤‰åŒ–é€Ÿåº¦")]
-    public float colorLerpSpeed = 1f; // å¾ã€…ã«åŒåŒ–ã™ã‚‹é€Ÿã•
-    [Header("èƒŒæ™¯çŠ¶æ…‹")]
+    [Header("F‚Ì•Ï‰»‘¬“x")]
+    public float colorLerpSpeed = 1f; // ™X‚É“¯‰»‚·‚é‘¬‚³
+    [Header("”wŒió‘Ô")]
     public bool isWhiteBackground = true;
-    [Header("ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å‚ç…§")]
-    public TutorialPlayer player;
+    [Header("ƒvƒŒƒCƒ„[QÆ")]
+    public Tutorialplayer player;
     void Start()
     {
-        // åˆæœŸè¨­å®š
+        // ‰Šúİ’è
         backgroundRenderer.color = whiteColor;
         backgroundRenderer2.color = blackColor;
         playerRenderer.color = blackColor;
     }
     void Update()
     {
-        // === Spaceã‚­ãƒ¼ã§èƒŒæ™¯åˆ‡ã‚Šæ›¿ãˆ ===
+        // === SpaceƒL[‚Å”wŒiØ‚è‘Ö‚¦ ===
         if (Input.GetKeyDown(KeyCode.Space))
         {
             isWhiteBackground = !isWhiteBackground;
@@ -39,23 +39,23 @@ public class ColorSwitcher : MonoBehaviour
                 backgroundRenderer2.color = whiteColor;
             }
             //Debug.Log(player.isGreen + " Green / " + isWhiteBackground + " isWhiteBackground");
-            // ã‚°ãƒªãƒ¼ãƒ³çŠ¶æ…‹ã®ã¨ãã¯è‰²ã‚’å¤‰ãˆãªã„
+            // ƒOƒŠ[ƒ“ó‘Ô‚Ì‚Æ‚«‚ÍF‚ğ•Ï‚¦‚È‚¢
             if (!player.isGreen)
             {
                 if (isWhiteBackground)
                 {
-                    // ç™½èƒŒæ™¯ â†’ ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’é»’ã«ä¸€ç¬å¤‰ãˆã‚‹
+                    // ”’”wŒi ¨ ƒvƒŒƒCƒ„[‚ğ•‚Éˆêu•Ï‚¦‚é
                     playerRenderer.color = blackColor;
                 }
                 else
                 {
-                    // é»’èƒŒæ™¯ â†’ ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’ç™½ã«ä¸€ç¬å¤‰ãˆã‚‹
+                    // •”wŒi ¨ ƒvƒŒƒCƒ„[‚ğ”’‚Éˆêu•Ï‚¦‚é
                     playerRenderer.color = whiteColor;
                 }
             }
         }
-        // === ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’å¾ã€…ã«èƒŒæ™¯è‰²ã«è¿‘ã¥ã‘ã¦åŒåŒ– ===
-        if (!player.isGreen) // ç·‘çŠ¶æ…‹ã®æ™‚ã¯åŒåŒ–ã—ãªã„
+        // === ƒvƒŒƒCƒ„[‚ğ™X‚É”wŒiF‚É‹ß‚Ã‚¯‚Ä“¯‰» ===
+        if (!player.isGreen) // —Îó‘Ô‚Ì‚Í“¯‰»‚µ‚È‚¢
         {
             playerRenderer.color = Color.Lerp(
                 playerRenderer.color,
@@ -65,5 +65,3 @@ public class ColorSwitcher : MonoBehaviour
         }
     }
 }
-
-
