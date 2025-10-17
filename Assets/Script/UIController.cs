@@ -170,7 +170,7 @@ public class UIController : MonoBehaviour
 
     {
 
-        if (TutorialPlayer.life >= 3)
+        if (PlayerControll.life >= 3)
 
         {
 
@@ -182,7 +182,7 @@ public class UIController : MonoBehaviour
 
         }
 
-        else if (TutorialPlayer.life == 2)
+        else if (PlayerControll.life == 2)
 
         {
 
@@ -194,7 +194,7 @@ public class UIController : MonoBehaviour
 
         }
 
-        else if (TutorialPlayer.life == 1)
+        else if (PlayerControll.life == 1)
 
         {
 

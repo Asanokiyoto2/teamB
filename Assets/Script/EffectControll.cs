@@ -2,25 +2,25 @@ using UnityEngine;
 public class EffectControll : MonoBehaviour
 {
     private Animator anim;
-    public TutorialPlayer player;
+    public PlayerControll player;
     private int currentLife;
     private bool isPlayingEffect = false;
     void Start()
     {
         anim = GetComponent<Animator>();
-        currentLife = TutorialPlayer.life;
+        currentLife = PlayerControll.life;
     }
     void Update()
     {
         // HPが変化したとき（＝被弾した瞬間）
-        if (currentLife != TutorialPlayer.life)
+        if (currentLife != PlayerControll.life)
         {
             // 以前より減っていたら被弾とみなす
-            if (currentLife > TutorialPlayer.life)
+            if (currentLife > PlayerControll.life)
             {
                 PlayEffect();
             }
-            currentLife = TutorialPlayer.life;
+            currentLife = PlayerControll.life;
         }
         // アニメーション終了を検知して非表示に戻す
         if (isPlayingEffect)
