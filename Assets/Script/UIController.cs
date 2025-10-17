@@ -40,7 +40,7 @@ public class UIController : MonoBehaviour
 
         }
 
-        currentLife = TutorialPlayer.life;
+        currentLife = PlayerControll.life;
 
         UpdateUIImmediate();
 
@@ -54,13 +54,13 @@ public class UIController : MonoBehaviour
 
         // ƒ‰ƒCƒt•Ï‰»‚ðŒŸ’m
 
-        if (TutorialPlayer.life != currentLife)
+        if (PlayerControll.life != currentLife)
 
         {
 
-            StartCoroutine(ChangeUI(TutorialPlayer.life, currentLife));
+            StartCoroutine(ChangeUI(PlayerControll.life, currentLife));
 
-            currentLife = TutorialPlayer.life;
+            currentLife = PlayerControll.life;
 
         }
 
