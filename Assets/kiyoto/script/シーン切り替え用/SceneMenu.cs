@@ -16,6 +16,11 @@ public class SceneMenu : MonoBehaviour
     {
         SceneManager.LoadScene("TitleScene");
     }
+
+    public void OnExplanationButton()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
     void Update()
     {
         

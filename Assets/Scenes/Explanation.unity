@@ -379,8 +379,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 577.7182, y: -249.20067}
-  m_SizeDelta: {x: 253.4604, y: 147.3765}
+  m_AnchoredPosition: {x: 777.6914, y: -391.12393}
+  m_SizeDelta: {x: 338.3562, y: 231.3797}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1108654293
 MonoBehaviour:
@@ -427,8 +427,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1482692055}
-        m_TargetAssemblyTypeName: TitleMenu, Assembly-CSharp
-        m_MethodName: OnStartMainGameScene
+        m_TargetAssemblyTypeName: SceneMenu, Assembly-CSharp
+        m_MethodName: OnExplanationButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

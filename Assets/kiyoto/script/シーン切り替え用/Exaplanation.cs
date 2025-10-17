@@ -15,7 +15,7 @@ public class Exaplanation : MonoBehaviour
         // Enterキーが押されたらシーンを切り替える
         if (Input.GetKeyDown(KeyCode.Return))  // Return = Enterキー
         {
-            SceneManager.LoadScene("MainGameScene");
+            SceneManager.LoadScene("Tutorial");
 
         }
     }
