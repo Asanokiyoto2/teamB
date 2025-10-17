@@ -40,7 +40,7 @@ public class TutorialUIController : MonoBehaviour
 
         }
 
-        currentLife = TutorialPlayer.life;
+        currentLife = Tutorialplayer.life;
 
         UpdateUIImmediate();
 
@@ -54,13 +54,13 @@ public class TutorialUIController : MonoBehaviour
 
         // ƒ‰ƒCƒt•Ï‰»‚ðŒŸ’m
 
-        if (TutorialPlayer.life != currentLife)
+        if (Tutorialplayer.life != currentLife)
 
         {
 
-            StartCoroutine(ChangeUI(TutorialPlayer.life, currentLife));
+            StartCoroutine(ChangeUI(Tutorialplayer.life, currentLife));
 
-            currentLife = TutorialPlayer.life;
+            currentLife = Tutorialplayer.life;
 
         }
 
@@ -170,7 +170,7 @@ public class TutorialUIController : MonoBehaviour
 
     {
 
-        if (TutorialPlayer.life >= 3)
+        if (Tutorialplayer.life >= 3)
 
         {
 
@@ -182,7 +182,7 @@ public class TutorialUIController : MonoBehaviour
 
         }
 
-        else if (TutorialPlayer.life == 2)
+        else if (Tutorialplayer.life == 2)
 
         {
 
@@ -194,7 +194,7 @@ public class TutorialUIController : MonoBehaviour
 
         }
 
-        else if (TutorialPlayer.life == 1)
+        else if (Tutorialplayer.life == 1)
 
         {
 
