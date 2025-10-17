@@ -4632,6 +4632,10 @@ PrefabInstance:
       value: -0.902
       objectReference: {fileID: 0}
     - target: {fileID: 3454630875326529856, guid: 53d8b910285a74440a2fab58193b713f, type: 3}
+      propertyPath: windForce
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454630875326529856, guid: 53d8b910285a74440a2fab58193b713f, type: 3}
       propertyPath: windDirection.x
       value: 1
       objectReference: {fileID: 0}
