@@ -8,6 +8,7 @@ public class StartSound : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(Scenes);
     }
 
     // Update is called once per frame
