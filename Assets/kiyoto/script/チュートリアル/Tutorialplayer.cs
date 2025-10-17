@@ -51,6 +51,8 @@ public class Tutorialplayer : MonoBehaviour
     private AudioSource audioSource;
     private AudioSource huusyaAudioSource; // ïóé‘ópAudioSource
     private GameObject nearestHuusya; // àÍî‘ãﬂÇ¢ïóé‘Çï€éù
+    //éÄñSämîF
+    public bool isDed = false;
 
     [SerializeField]private Vector3 StartPos;
     void Start()
@@ -123,6 +125,14 @@ public class Tutorialplayer : MonoBehaviour
             //gameObject.SetActive(true);
             this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
             life = 3;
+            anim.SetBool("Heal", false);
+            anim.SetBool("damage", false);
+            anim.SetBool("damage2", false);
+            anim.SetBool("Heal2", false);
+            Circle.SetActive(true);
+            Hart.SetActive(true);
+            anim.SetBool("Ded", true);
+            isDed = true;
         }
         // === Huusyaâπó êßå‰ ===
         UpdateHuusyaSound();
@@ -159,6 +169,7 @@ public class Tutorialplayer : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Huusya"))
         {
+            anim.SetBool("Ded", false);
             if (!isBarrier && !isGreen && !noDamage)
             {
                 noDamage = true;
@@ -166,9 +177,11 @@ public class Tutorialplayer : MonoBehaviour
                 audioSource.PlayOneShot(Damage);
                 if (life == 2)
                 {
+                    anim.SetBool("damage3", false);
                     anim.SetBool("damage", true);
                     anim.SetBool("Heal", false);
                     Circle.SetActive(false);
+                    isDed = false;
                 }
                 else if (life == 1)
                 {

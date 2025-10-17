@@ -72,7 +72,7 @@ public class TutorialUIController : MonoBehaviour
 
         // É_ÉÅÅ[ÉWéû
 
-        if (newLife < oldLife)
+        if (newLife < oldLife && !player.isDed)
 
         {
 
@@ -92,7 +92,7 @@ public class TutorialUIController : MonoBehaviour
 
         // âÒïúéû
 
-        else if (newLife > oldLife)
+        else if (newLife > oldLife && !player.isDed)
 
         {
 
@@ -109,6 +109,13 @@ public class TutorialUIController : MonoBehaviour
                 yield return StartCoroutine(ShowAndBlink(starUI));
 
         }
+        else if(player.isDed)
+        {
+            yield return StartCoroutine(ShowAndBlink(circleUI));
+            yield return StartCoroutine(ShowAndBlink(heartUI));
+            yield return StartCoroutine(ShowAndBlink(starUI));
+        }
+
 
     }
 
