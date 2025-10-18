@@ -12,25 +12,25 @@ public class Life : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (TutorialPlayer.life == 3)
+        if (PlayerControll.life == 3)
         {
             life1.color = blackColor;
             life2.color = blackColor;
             life3.color = blackColor;
         }
-        else if (TutorialPlayer.life == 2)
+        else if (PlayerControll.life == 2)
         {
             life1.color = whiteColor;
             life2.color = blackColor;
             life3.color = blackColor;
         }
-        else if (TutorialPlayer.life == 1)
+        else if (PlayerControll.life == 1)
         {
             life1.color = whiteColor;
             life2.color = whiteColor;
             life3.color = blackColor;
         }
-        lifeText.text = $"{TutorialPlayer.life}";
+        lifeText.text = $"{PlayerControll.life}";
     }
 
     // Update is called once per frame

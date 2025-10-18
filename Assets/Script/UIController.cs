@@ -25,6 +25,12 @@ public class UIController : MonoBehaviour
     public int blinkCount = 5;
 
     private int currentLife;
+    [Header("UIÉJÉâÅ[")]
+    public Color whiteColor = Color.white;
+    public Color greenColor = Color.green;
+    public SpriteRenderer circleRenderer;
+    public SpriteRenderer heartRenderer;
+    public SpriteRenderer starRenderer;
 
     void Start()
 
@@ -62,6 +68,19 @@ public class UIController : MonoBehaviour
 
             currentLife = PlayerControll.life;
 
+        }
+
+        if (!player.isBarrier)
+        {
+            circleRenderer.color = whiteColor;
+            heartRenderer.color = whiteColor;
+            starRenderer.color = whiteColor;
+        }
+        else if (player.isBarrier)
+        {
+            circleRenderer.color = greenColor;
+            heartRenderer.color = greenColor;
+            starRenderer.color = greenColor;
         }
 
     }

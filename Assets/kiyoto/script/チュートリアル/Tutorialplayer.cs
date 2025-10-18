@@ -21,7 +21,7 @@ public class Tutorialplayer : MonoBehaviour
     private bool tookDamage = false;
     private Collider2D playerCol;
     private Collider2D goalCol;
-    private bool isBarrier = false;
+    public bool isBarrier = false;
     private bool noDamage = false;
     [Header("UI オブジェクト")]
     private GameObject Circle;
@@ -118,7 +118,7 @@ public class Tutorialplayer : MonoBehaviour
             }
         }
         //プレイヤー復活
-        Debug.Log("プレイヤー復活:"+(transform.position == StartPos));
+        //Debug.Log("プレイヤー復活:"+(transform.position == StartPos));
         if(life <= 0 && transform.position == StartPos)
         {
 

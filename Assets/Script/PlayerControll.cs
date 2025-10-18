@@ -24,7 +24,7 @@ public class PlayerControll : MonoBehaviour
     private bool tookDamage = false;
     private Collider2D playerCol;
     private Collider2D goalCol;
-    private bool isBarrier = false;
+    public bool isBarrier = false;
     private bool noDamage = false;
     [Header("UI オブジェクト")]
     private GameObject Circle;
